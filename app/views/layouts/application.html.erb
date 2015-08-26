@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<%= render "layouts/head" %>
+<body>
+<%= render "layouts/header" %>
+
+<div class="row">
+  <div class="small-12 columns">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+  </div>
+</div>
+
+<%= yield %>
+
+<%= render "layouts/footer" %>
+</body>
+</html>
