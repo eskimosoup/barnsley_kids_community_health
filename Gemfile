@@ -61,3 +61,4 @@ group :test do
 end
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+gem 'friendly_id', '~> 5.1.0'
