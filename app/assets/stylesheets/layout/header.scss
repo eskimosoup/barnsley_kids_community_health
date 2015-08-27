@@ -1,5 +1,14 @@
 header {
   nav {
     background-color: $nav-blue;
+    text-align: center;
+    a {
+      text-transform: uppercase;
+      padding: 20px;
+      color: $white;
+    }
+    a.active, a:hover {
+      background-color: $nav-dark-blue;
+    }
   }
 }

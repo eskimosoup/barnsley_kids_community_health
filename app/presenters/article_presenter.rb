@@ -13,6 +13,12 @@ class ArticlePresenter < BasePresenter
     h.raw article.content
   end
 
+  def date(format = :long)
+    h.content_tag :span, class: 'date' do
+      h.l article.date, format: format
+    end
+  end
+
   def read_more
     h.link_to "Read More", article, class: "button read-more"
   end
@@ -50,11 +56,11 @@ class ArticlePresenter < BasePresenter
     image(:show)
   end
 
+  private
+
   def image?
     article.image?
   end
-
-  private
 
   def image(version)
     h.image_tag article.image.url(version)
