@@ -14,3 +14,5 @@
   a.date = Date.today - num.weeks
   a.save
 end
+
+Page.find_or_create_by(title: "About Us", style: "basic", layout: "application", content: "About us page")
