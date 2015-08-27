@@ -15,11 +15,12 @@ a {
   background-color: $lightest-grey;
 }
 
-a.button {
+.button, input[type="submit"] {
   display: inline-block;
   border-radius: 5px;
   padding: 5px 15px;
   border: 1px solid $light-grey;
+  background-color: $white;
   margin: 5px auto;
   color: $dark-grey;
   font-size: em(12px);
