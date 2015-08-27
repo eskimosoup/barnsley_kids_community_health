@@ -8,12 +8,8 @@
   <nav>
     <div class="row">
       <div class="small-12 columns">
-        <ul>
-          <li>Home</li>
-          <li>Services</li>
-          <li>About Us</li>
-          <li>News</li>
-          <li>Contact Us</li>
+        <ul class="navigation" id="header-navigation">
+          <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
         </ul>
       </div>
     </div>

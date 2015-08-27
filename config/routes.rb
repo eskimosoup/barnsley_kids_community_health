@@ -8,6 +8,14 @@ Rails.application.routes.draw do
   mount Optimadmin::Engine => "/admin"
 end
 Optimadmin::Engine.routes.draw do
+  resources :services, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :pages, except: :show do
     collection do
       post 'order'
