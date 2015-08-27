@@ -1,22 +1,20 @@
 <%= form_for(article) do |f| %>
-<% if article.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-    <ul>
-      <% article.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  
 
   <div class="tabs prevent-flash">
     <ul class="tab-list">
@@ -31,38 +29,40 @@
     </ul>
 
     <%= field_set_tag nil, id: 'tabs-1' do %>
-            <div class="field">
+      <div class="field">
         <%= f.label :summary %><br>
-        <%= f.text_area :summary, class: 'tinymce' %>
+        <%= f.text_area :summary %>
       </div>
-            <div class="field">
+
+      <div class="field">
         <%= f.label :content %><br>
         <%= f.text_area :content, class: 'tinymce' %>
       </div>
-            <div class="field">
+    <% end %>
+
+    <%= field_set_tag nil, id: 'tabs-2' do %>
+      <div class="field">
         <%= f.label :image %><br>
-        <%= f.text_field :image %>
+        <%= f.file_field :image %>
       </div>
-            <div class="field">
+    <% end %>
+
+    <%= field_set_tag nil, id: 'tabs-3' do %>
+      <div class="field">
         <%= f.label :date %><br>
         <%= f.date_select :date %>
       </div>
-            <div class="field">
+
+      <div class="field">
         <%= f.label :suggested_url %><br>
         <%= f.text_field :suggested_url %>
       </div>
-          <% end %>
 
-    <%= field_set_tag nil, id: 'tabs-2' do %>
-      
-          <% end %>
-
-    <%= field_set_tag nil, id: 'tabs-3' do %>
-            <div class="field">
+      <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>
       </div>
-          <% end %>
+    <% end %>
   </div>
 
   <div class="actions">

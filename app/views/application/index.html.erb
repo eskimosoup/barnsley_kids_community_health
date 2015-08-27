@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="small-12 columns">
+    Main Content
+  </div>
+</div>
+
+<section class="lightest-grey-background">
+  <div class="row">
+    <div class="small-12 medium-7 columns">
+
+    </div>
+    <div class="small-12 medium-5 columns home articles">
+      <%= render partial: "articles/home_article", collection: @presented_articles, as: :presented_article %>
+      <%= link_to "All News >", articles_path, class: "view-all" %>
+    </div>
+  </div>
+</section>

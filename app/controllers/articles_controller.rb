@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    redirect_to @article, status: :moved_permanently if article_path(@article) != request.path
+    redirect_to @presented_article, status: :moved_permanently if article_path(@article) != request.path
   end
 
   private

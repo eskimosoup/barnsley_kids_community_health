@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :global_site_settings
 
   def index
-
+    @presented_articles = BaseCollectionPresenter.new(collection: Article.published.order(date: :desc).limit(3), view_template: view_context, presenter: ArticlePresenter)
   end
 
   private

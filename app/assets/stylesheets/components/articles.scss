@@ -1,0 +1,28 @@
+.row.article {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Home Page Article Styling */
+
+.home.articles {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: $white;
+  border-radius: 5px;
+  a.view-all {
+    margin: 25px;
+    float: right;
+    color: $grey;
+  }
+  .article {
+    h3 {
+      font-size: em(20px);
+      font-weight: normal;
+      color: $dark-grey;
+    }
+    color: $grey;
+    padding: 25px;
+    border-bottom: 3px solid $lightest-grey;
+  }
+}

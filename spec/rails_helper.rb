@@ -12,6 +12,7 @@ require 'shoulda-matchers'
 require 'database_cleaner'
 require 'support/mailer_macros'
 require 'support/site_settings_macros'
+require 'support/carrierwave_config'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -64,6 +65,11 @@ RSpec.configure do |config|
     create(:site_setting_email)
   end
   config.before(:each, type: :feature) { create(:administrator) }
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Rails.root + "public/test_uploads")
+    end
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
