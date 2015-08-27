@@ -1,13 +1,9 @@
 FactoryGirl.define do
   factory :article do
-    title "MyString"
-summary "MyText"
-content "MyText"
-image "MyString"
-date "2015-08-26"
-display false
-suggested_url "MyString"
-slug "MyString"
+    sequence(:title) {|n| "Title #{ n }"}
+    summary "Summary"
+    content "Bacon ipsum dolor amet leberkas ball tip sirloin brisket ribeye strip steak pancetta, tongue alcatra."
+    date { Date.today - 2.weeks }
+    display true
   end
-
 end

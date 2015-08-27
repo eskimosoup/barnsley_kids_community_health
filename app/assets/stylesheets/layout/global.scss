@@ -6,3 +6,27 @@ nav {
     }
   }
 }
+
+a {
+  text-decoration: none;
+}
+
+.lightest-grey-background {
+  background-color: $lightest-grey;
+}
+
+a.button {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px 15px;
+  border: 1px solid $light-grey;
+  margin: 5px auto;
+  color: $dark-grey;
+  font-size: em(12px);
+  font-weight: bold;
+  &:hover {
+    background-color: $button-blue;
+    border-color: $button-blue;
+    color: $white;
+  }
+}
