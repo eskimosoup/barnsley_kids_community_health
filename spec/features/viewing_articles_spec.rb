@@ -19,5 +19,6 @@ RSpec.feature "ViewingArticles", type: :feature do
       expect(page).to have_content(selected_article.title)
     end
     expect(page).to have_content(selected_article.content)
+
   end
 end
