@@ -27,6 +27,15 @@
         <% if can? :manage, Optimadmin::MenuItem %>
           <li><%= link_to 'Site Navigation', menu_items_path %></li>
         <% end %>
+        <% if can? :manage, Page %>
+          <li><%= link_to 'Pages', pages_path %></li>
+        <% end %>
+        <% if can? :manage, Service %>
+          <li><%= link_to 'Services', services_path %></li>
+        <% end %>
+        <% if can? :manage, Page %>
+          <li><%= link_to 'Articles', articles_path %></li>
+        <% end %>
       </ul>
 
       <div class="content-category-type">
@@ -34,7 +43,9 @@
       </div>
 
       <ul class="content-category-list">
-
+        <% if can? :manage, Banner %>
+          <li><%= link_to 'Banners', banners_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

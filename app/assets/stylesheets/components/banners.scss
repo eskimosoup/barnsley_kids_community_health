@@ -1,0 +1,26 @@
+.home.banner {
+  position: relative;
+  height: 276px;
+  .content {
+    background: image-url("banner/mask.png") left no-repeat;
+    width: 633px;
+    height: 276px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: $white;
+    padding: 40px 194px 40px 50px;
+    h1 {
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: em(24px);
+      overflow: hidden;
+    }
+  }
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827145627) do
+ActiveRecord::Schema.define(version: 20150828122657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20150827145627) do
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+
+  create_table "banners", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.string   "image",                     null: false
+    t.integer  "position",   default: 0
+    t.boolean  "display",    default: true
+    t.text     "content"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -146,7 +156,9 @@ ActiveRecord::Schema.define(version: 20150827145627) do
     t.string   "icon"
     t.string   "image"
     t.text     "overview"
+    t.string   "colour",                    null: false
     t.boolean  "display",    default: true
+    t.integer  "position",   default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

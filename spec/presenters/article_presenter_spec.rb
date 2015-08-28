@@ -4,7 +4,7 @@ RSpec.describe ArticlePresenter, type: :presenter do
   let(:article) { create(:article) }
   subject(:article_presenter) { ArticlePresenter.new(object: article, view_template: view) }
 
-  describe "standard article accessing model attributes" do
+  describe "standard article" do
     it "returns the article id" do
       expect(article_presenter.id).to eq(article.id)
     end
