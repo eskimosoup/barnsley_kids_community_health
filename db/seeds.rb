@@ -19,7 +19,7 @@ Page.find_or_create_by(title: "About Us", style: "basic", layout: "application",
 
 service_data = [
   { name: "Health Visiting", colour: "pink" },
-  { name: "School Nursing", colour: "light_purple" },
+  { name: "School Nursing", colour: "light-purple" },
   { name: "Family Nurse Partnership", colour: "dark_purple" },
   { name: "Children's Epilepsy Nursing Team", colour: "light_blue" },
   { name: "Children's Speech and Language Therapy Team", colour: "dark_blue" },
@@ -31,3 +31,4 @@ service_data = [
 service_data.each do |service_hash|
   Service.find_or_create_by(service_hash)
 end
+

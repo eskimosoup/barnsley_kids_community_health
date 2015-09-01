@@ -8,4 +8,11 @@ RSpec.describe Service, type: :model do
     it { should validate_inclusion_of(:colour).in_array(Service::COLOURS) }
     it { should validate_uniqueness_of(:name) }
   end
+
+  describe "associations", :association do
+    it { should have_many(:service_testimonials).dependent(:destroy) }
+    it { should have_many(:testimonials).through(:service_testimonials) }
+    it { should have_many(:service_frequently_asked_questions).dependent(:destroy) }
+    it { should have_many(:frequently_asked_questions).through(:service_frequently_asked_questions) }
+  end
 end

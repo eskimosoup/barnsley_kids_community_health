@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="small-3 columns">
+
+  </div>
+  <div class="small-9 columns">
+    <div class="row">
+      <div class="small-12 columns">
+        Service Banner
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="<%= @presented_service.heading_classes %>">
+          <h1><%= @presented_service.name %></h1>
+        </div>
+
+        <%= @presented_service.overview %>
+      </div>
+    </div>
+
+    <div class="row">
+      <% unless @presented_testimonials.blank? %>
+        <div class="small-6 columns">
+          <h3>Testimonials</h3>
+          <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+        </div>
+      <% end %>
+      <div class="small-6 columns">
+        <h3>Opening Times</h3>
+      </div>
+      <% unless @presented_faqs.blank? %>
+        <div class="small-6 columns">
+          <h3>Frequently Asked Questions</h3>
+          <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

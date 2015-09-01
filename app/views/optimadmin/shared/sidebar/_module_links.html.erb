@@ -33,8 +33,14 @@
         <% if can? :manage, Service %>
           <li><%= link_to 'Services', services_path %></li>
         <% end %>
-        <% if can? :manage, Page %>
+        <% if can? :manage, Article %>
           <li><%= link_to 'Articles', articles_path %></li>
+        <% end %>
+        <% if can? :manage, Testimonial %>
+          <li><%= link_to 'Testimonials', testimonials_path %></li>
+        <% end %>
+        <% if can? :manage, FrequentlyAskedQuestion %>
+        <li><%= link_to 'Frequently Asked Questions', frequently_asked_questions_path %></li>
         <% end %>
       </ul>
 
