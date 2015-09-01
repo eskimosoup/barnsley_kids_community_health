@@ -3,7 +3,7 @@ class BaseCollectionPresenter
   array_methods = Array.instance_methods - Object.instance_methods
   delegate :==, *array_methods, to: :presented_collection
 
-  delegate :current_page, :total_pages, :limit_value, to: :collection
+  delegate :current_page, :total_pages, :limit_value, to: :collection, allow_nil: true
   delegate :size, to: :presented_collection
 
   attr_reader :collection, :presenter, :view_template

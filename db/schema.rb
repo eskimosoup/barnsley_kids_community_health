@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827145627) do
+ActiveRecord::Schema.define(version: 20150901103911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20150827145627) do
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
+
+  create_table "banners", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.string   "image",                     null: false
+    t.integer  "position",   default: 0
+    t.boolean  "display",    default: true
+    t.text     "content"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "frequently_asked_questions", force: :cascade do |t|
+    t.string   "question",                  null: false
+    t.text     "answer",                    null: false
+    t.boolean  "display",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -141,14 +159,53 @@ ActiveRecord::Schema.define(version: 20150827145627) do
     t.datetime "updated_at",                   null: false
   end
 
+  create_table "service_frequently_asked_questions", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "frequently_asked_question_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "service_frequently_asked_questions", ["frequently_asked_question_id"], name: "faq_id_service_faq", using: :btree
+  add_index "service_frequently_asked_questions", ["service_id"], name: "service_id_service_faq", using: :btree
+
+  create_table "service_testimonials", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "testimonial_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "service_testimonials", ["service_id"], name: "index_service_testimonials_on_service_id", using: :btree
+  add_index "service_testimonials", ["testimonial_id"], name: "index_service_testimonials_on_testimonial_id", using: :btree
+
   create_table "services", force: :cascade do |t|
-    t.string   "name",                      null: false
+    t.string   "name",                         null: false
     t.string   "icon"
     t.string   "image"
     t.text     "overview"
+    t.string   "colour",                       null: false
+    t.boolean  "display",       default: true
+    t.integer  "position",      default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "slug"
+    t.string   "suggested_url"
+  end
+
+  add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.string   "author"
+    t.text     "content",                   null: false
     t.boolean  "display",    default: true
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "service_frequently_asked_questions", "frequently_asked_questions"
+  add_foreign_key "service_frequently_asked_questions", "services"
+  add_foreign_key "service_testimonials", "services"
+  add_foreign_key "service_testimonials", "testimonials"
 end

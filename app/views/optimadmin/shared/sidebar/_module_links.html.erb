@@ -27,6 +27,21 @@
         <% if can? :manage, Optimadmin::MenuItem %>
           <li><%= link_to 'Site Navigation', menu_items_path %></li>
         <% end %>
+        <% if can? :manage, Page %>
+          <li><%= link_to 'Pages', pages_path %></li>
+        <% end %>
+        <% if can? :manage, Service %>
+          <li><%= link_to 'Services', services_path %></li>
+        <% end %>
+        <% if can? :manage, Article %>
+          <li><%= link_to 'Articles', articles_path %></li>
+        <% end %>
+        <% if can? :manage, Testimonial %>
+          <li><%= link_to 'Testimonials', testimonials_path %></li>
+        <% end %>
+        <% if can? :manage, FrequentlyAskedQuestion %>
+        <li><%= link_to 'Frequently Asked Questions', frequently_asked_questions_path %></li>
+        <% end %>
       </ul>
 
       <div class="content-category-type">
@@ -34,7 +49,9 @@
       </div>
 
       <ul class="content-category-list">
-
+        <% if can? :manage, Banner %>
+          <li><%= link_to 'Banners', banners_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

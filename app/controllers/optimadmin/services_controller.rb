@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_service, only: [:show, :edit, :update, :destroy]
 
     def index
-      @services = Optimadmin::BaseCollectionPresenter.new(collection: Service.where('title ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ServicePresenter)
+      @services = Optimadmin::BaseCollectionPresenter.new(collection: Service.where('name ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ServicePresenter)
     end
 
     def show
@@ -46,7 +46,8 @@ module Optimadmin
     end
 
     def service_params
-      params.require(:service).permit(:name, :icon, :image, :overview, :display)
+      params.require(:service).permit(:name, :icon, :icon_cache, :remote_icon_url, :image, :image_cache, :remote_image_url, :suggested_url, :overview, :display,
+      testimonial_ids: [], frequently_asked_question_ids: [])
     end
   end
 end

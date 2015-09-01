@@ -16,3 +16,19 @@
 end
 
 Page.find_or_create_by(title: "About Us", style: "basic", layout: "application", content: "About us page")
+
+service_data = [
+  { name: "Health Visiting", colour: "pink" },
+  { name: "School Nursing", colour: "light-purple" },
+  { name: "Family Nurse Partnership", colour: "dark_purple" },
+  { name: "Children's Epilepsy Nursing Team", colour: "light_blue" },
+  { name: "Children's Speech and Language Therapy Team", colour: "dark_blue" },
+  { name: "Paediatric Therapy", colour: "turquoise" },
+  { name: "Paediatric Audiology", colour: "green" },
+  { name: "Child and Adolescent Mental Health (CAMHS)", colour: "dark_green" }
+]
+
+service_data.each do |service_hash|
+  Service.find_or_create_by(service_hash)
+end
+

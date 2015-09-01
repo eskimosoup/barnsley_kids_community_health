@@ -3,11 +3,40 @@ Rails.application.routes.draw do
   resources :pages, only: :show
   resources :contacts, only: [:new, :create]
   resources :articles, only: [:index, :show]
+  resources :services, only: [:index, :show]
 
   root to: "application#index"
   mount Optimadmin::Engine => "/admin"
 end
 Optimadmin::Engine.routes.draw do
+  resources :frequently_asked_questions, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :testimonials, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :banners, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+      get 'edit_images'
+      post 'update_image_default'
+      post 'update_image_fill'
+      post 'update_image_fit'
+    end
+  end
   resources :services, except: [:show] do
     collection do
       post 'order'

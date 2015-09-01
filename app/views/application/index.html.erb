@@ -1,8 +1,16 @@
 <div class="row">
   <div class="small-12 columns">
-    Main Content
+    <%= render partial: "banners/banner", collection: @presented_banners, as: :presented_banner %>
   </div>
 </div>
+
+
+<section class="home services row">
+  <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
+  <div class="small-12 medium-4 columns twitter">
+    Twitter
+  </div>
+</section>
 
 <section class="lightest-grey-background">
   <div class="row">

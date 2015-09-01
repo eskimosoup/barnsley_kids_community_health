@@ -1,0 +1,45 @@
+/* Home Page Service Styling */
+
+.home.services {
+  .service {
+    height: 158px;
+    position: relative;
+    .content {
+      width: 202px;
+      height: 158px;
+      position: absolute;
+      top: 0;
+      left: 1em;
+      z-index: 1;
+    }
+    img {
+      position: absolute;
+      top: 3px;
+      right: 17px;
+    }
+  }
+  .service.pink .content {
+    background: image-url("service/pink-mask.png") left no-repeat;
+  }
+  .service.dark-blue .content {
+    background: image-url("service/dark-blue-mask.png") left no-repeat;
+  }
+  .service.light-blue .content {
+    background: image-url("service/light-blue-mask.png") left no-repeat;
+  }
+  .service.dark-purple .content {
+    background: image-url("service/dark-purple-mask.png") left no-repeat;
+  }
+  .service.light-purple .content {
+    background: image-url("service/light-purple-mask.png") left no-repeat;
+  }
+  .service.green .content {
+    background: image-url("service/green-mask.png") left no-repeat;
+  }
+  .service.dark-green .content {
+    background: image-url("service/dark-green-mask.png") left no-repeat;
+  }
+  .service.turquoise .content {
+    background: image-url("service/turquoise-mask.png") left no-repeat;
+  }
+}
