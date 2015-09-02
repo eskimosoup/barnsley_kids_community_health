@@ -1,11 +1,12 @@
 <header>
   <div class="row">
     <div class="small-12 columns">
-      <%= image_tag "logo.jpg", alt: global_site_settings["Name"], title: global_site_settings["Name"] %>
-      <%= image_tag "nhs_logo.jpg", alt: "South West Yorkshire Partnership NHS Foundation Trust", title: "South West Yorkshire Partnership NHS Foundation Trust" %>
+      <%= image_tag "logo.jpg", alt: global_site_settings["Name"], class: 'left' %>
+      <%= image_tag "nhs_logo.jpg", alt: "South West Yorkshire Partnership NHS Foundation Trust", class: 'right' %>
     </div>
   </div>
-  <nav>
+
+  <nav class="primary-navigation">
     <div class="row">
       <div class="small-12 columns">
         <ul class="navigation" id="header-navigation">

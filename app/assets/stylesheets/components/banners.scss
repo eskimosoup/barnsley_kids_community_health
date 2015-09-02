@@ -1,26 +1,33 @@
 .home.banner {
-  position: relative;
   height: 276px;
+  margin: em(22px) 0 em(20px);
+  position: relative;
+
+  h1 {
+    font-size: em(18px);
+    margin: 0 0 em(10px);
+    overflow: hidden;
+  }
+
+  p {
+    font-size: em(12px);
+  }
+
   .content {
-    background: image-url("banner/mask.png") left no-repeat;
-    width: 633px;
+    background: image-url('banner/mask.png') left no-repeat;
+    color: $white;
     height: 276px;
+    left: 0;
+    padding: em(60px) 0 0 em(50px);
     position: absolute;
     top: 0;
-    left: 0;
+    width: 633px;
     z-index: 1;
-    color: $white;
-    padding: 40px 194px 40px 50px;
-    h1 {
-      margin: 0;
-      margin-bottom: 10px;
-      font-size: em(24px);
-      overflow: hidden;
-    }
   }
+
   img {
     position: absolute;
-    top: 0;
     right: 0;
+    top: 0;
   }
 }

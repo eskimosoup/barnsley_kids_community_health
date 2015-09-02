@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-<%= render "layouts/head" %>
-<body>
-<%= render "layouts/header" %>
+  <%= render "layouts/head" %>
 
-<div class="row">
-  <div class="small-12 columns">
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-  </div>
-</div>
+  <body>
+    <%= render "layouts/header" %>
 
-<%= yield %>
+    <% if flash.present? %>
+    <div class="lightest-grey-background">
+      <div class="row">
+        <div class="small-12 columns">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "flash-message #{name}" %>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+    <% end %>
 
-<%= render "layouts/footer" %>
-</body>
+    <%= yield %>
+
+    <%= render "layouts/footer" %>
+
+    <%= javascript_include_tag 'application' %>
+
+    <%= yield :footer %>
+  </body>
 </html>

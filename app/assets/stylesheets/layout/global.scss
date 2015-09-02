@@ -1,3 +1,34 @@
+html,
+body {
+  font-size: 14px;
+}
+
+body {
+  color: $dark-grey;
+  font-family: $primary-font;
+}
+
+a {
+  text-decoration: none;
+
+  &:link {
+    color: $nav-blue;
+  }
+
+  &:visited {
+    color: $nav-blue;
+  }
+
+  &:hover {
+    color: $nav-blue;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $footer-text-blue;
+  }
+}
+
 nav {
   ul {
     list-style-type: none;

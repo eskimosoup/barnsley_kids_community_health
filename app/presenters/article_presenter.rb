@@ -5,6 +5,10 @@ class ArticlePresenter < BasePresenter
     article.title
   end
 
+  def linked_title
+    h.link_to article.title, article
+  end
+
   def summary
     h.simple_format article.summary
   end
@@ -25,20 +29,20 @@ class ArticlePresenter < BasePresenter
 
   def classes
     if image?
-      "small-8 columns"
+      "medium-8 columns"
     else
-      "small-12 columns"
+      "medium-12 columns"
     end
   end
 
   def index_image_div
     return nil unless index_image
-    h.content_tag :div, index_image, class: "small-4 columns"
+    h.content_tag :div, index_image, class: "medium-4 columns"
   end
 
   def home_image_div
     return nil unless home_image
-    h.content_tag :div, home_image, class: "small-4 columns"
+    h.content_tag :div, (h.link_to home_image, article, title: article.title), class: "medium-4 columns"
   end
 
   def index_image
@@ -63,6 +67,6 @@ class ArticlePresenter < BasePresenter
   end
 
   def image(version)
-    h.image_tag article.image.url(version)
+    h.image_tag article.image.url(version), alt: article.title
   end
 end

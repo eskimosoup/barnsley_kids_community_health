@@ -1,0 +1,48 @@
+%flash-heading {
+  font-weight: normal;
+  color: $white;
+}
+
+// Flash
+.flash-message {
+  border: 1px solid $grey;
+  color: $white;
+
+  h2 {
+    @extend %flash-heading;
+  }
+
+  ul {
+    font-weight: normal;
+  }
+
+  &.notice {
+    background: $service-green;
+    font-weight: bold;
+  }
+
+  &.error {
+    background: $service-dark-purple;
+    font-weight: bold;
+  }
+
+  &.alert {
+    background: $service-dark-purple;
+    font-weight: bold;
+  }
+}
+
+.error_messages,
+#error_explanation {
+  background-color: $service-dark-purple;
+  border-color: $accent-blue;
+  color: $white;
+
+  h2 {
+    @extend %flash-heading;
+  }
+
+  ul {
+    font-weight: normal;
+  }
+}

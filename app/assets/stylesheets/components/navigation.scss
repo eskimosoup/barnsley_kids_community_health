@@ -1,0 +1,77 @@
+.primary-navigation {
+  @extend %clearfix;
+  background-color: $nav-blue;
+  margin: em(22px) 0 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    position: relative;
+    margin-left: -6px;
+    vertical-align: bottom;
+
+    &:hover ul {
+      display: block;
+    }
+
+    &:first-of-type a {
+      background: image-url('components/navigation/border.png') right repeat-y,
+                  image-url('components/navigation/border.png') left repeat-y;
+
+      &.active,
+      &:hover {
+        background-color: $nav-dark-blue;
+      }
+    }
+  }
+
+  a {
+    background: image-url('components/navigation/border.png') right repeat-y;
+    color: $white;
+    font-size: em(16px);
+    padding: em(20px, 16px);
+    text-transform: uppercase;
+
+    &.active {
+      background-color: $nav-dark-blue;
+    }
+  }
+
+  .has-dropdown {
+    background: image-url('components/navigation/dropdown.png') 90% center no-repeat;
+
+    > a {
+      padding-right: em(27px);
+    }
+
+    &:hover {
+      background-color: $nav-dark-blue;
+    }
+  }
+}
+
+.dropdown {
+  background: $nav-blue;
+  display: none;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+
+  a {
+    background: none;
+    font-size: em(14px, 16px);
+    padding: em(5px);
+    width: 100%;
+  }
+
+  li {
+    margin-left: 0;
+    display: block;
+    width: 100%;
+  }
+
+  li:first-of-type a {
+    background: none;
+  }
+}

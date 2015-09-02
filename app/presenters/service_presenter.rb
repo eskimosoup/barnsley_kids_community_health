@@ -18,4 +18,7 @@ class ServicePresenter < BasePresenter
     ["service-header", colour].join(" ")
   end
 
+  def link
+    service
+  end
 end

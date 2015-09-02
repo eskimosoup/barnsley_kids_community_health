@@ -1,0 +1,57 @@
+.twitter {
+  background: $button-blue;
+  padding: em(44px);
+  height: 100%;
+
+  h4 {
+    background: image-url('components/icons/twitter-bird.png') top right no-repeat;
+    color: $white;
+    min-height: 19px;
+    font-size: em(14px);
+    font-weight: $primary-font-bold;
+    margin: 0 0 em(32px, 14px);
+  }
+}
+
+.twitter-username {
+  display: block;
+  font-size: em(14px);
+  margin: 0 0 em(13px);
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $white;
+  }
+}
+
+.twitter-tweet-wrap {
+  border-bottom: 1px solid $accent-blue;
+  color: $white;
+  padding: em(17px) 0 em(30px);
+
+  &:first-of-type {
+    border-top: 1px solid $accent-blue;
+  }
+}
+
+.twitter-tweet {
+  font-size: em(13px);
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $service-green;
+
+  }
+}
+
+.twitter-tweet-time {
+  background: image-url('components/icons/twitter-time.png') left center no-repeat;
+  font-family: $secondary-font;
+  font-size: em(12px);
+  font-style: italic;
+  padding-left: em(24px, 12px);
+}

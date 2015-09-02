@@ -1,5 +1,15 @@
-<h1><%= @presented_page.title %></h1>
+<section class="separated-section page lightest-grey-background">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="content-box">
+        <h1><%= @presented_page.title %></h1>
 
-<%= @presented_page.image %>
+        <div class="content-wrap">
+          <%= @presented_page.image %>
 
-<%= @presented_page.content %>
+          <%= @presented_page.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
