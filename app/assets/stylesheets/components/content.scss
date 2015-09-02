@@ -1,9 +1,13 @@
-.content-box {
-  @include border-radius(4px);
-  background: $white;
+%content-box-shadow {
   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .22);
   -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .22);
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, .22);
+}
+
+.content-box {
+  @include border-radius(4px);
+  @extend %content-box-shadow;
+  background: $white;
   padding: em(33px);
 }
 

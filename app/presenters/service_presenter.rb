@@ -6,6 +6,10 @@ class ServicePresenter < BasePresenter
     h.link_to name, service
   end
 
+  def icon
+    #h.image_tag service.icon.thumb.url, width: 32, height: 32
+  end
+
   def colour
     service.colour.tr("_", "-")
   end

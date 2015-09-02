@@ -1,6 +1,27 @@
 .row.article {
   margin-top: 15px;
   margin-bottom: 15px;
+
+  .content-box {
+    @extend %clearfix;
+  }
+
+  h2 {
+    font-size: em(16px);
+    font-weight: $primary-font-semibold;
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: $deep-grey;
+    }
+  }
+
+  img {
+    @include border-radius(3px);
+    margin-top: em(20px);
+  }
 }
 
 /* Home Page Article Styling */
@@ -25,4 +46,10 @@
     padding: 25px;
     border-bottom: 3px solid $lightest-grey;
   }
+}
+
+.article-date {
+  color: $secondary-grey;
+  font-size: em(11px);
+  margin: 0 0 em(5px, 11px);
 }

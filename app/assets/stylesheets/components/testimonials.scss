@@ -1,0 +1,25 @@
+.testimonial {
+
+}
+
+.service-layout .testimonial-content {
+  color: $button-blue;
+  font-style: italic;
+  text-align: center;
+  padding: em(54px) 0;
+
+  p,
+  p:first-of-type {
+    font-weight: $primary-font-semibold;
+    color: $button-blue;
+  }
+}
+
+.testimonial-author {
+  font-family: $third-font;
+  font-size: em(11px);
+  font-weight: $third-font-bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: $button-blue;
+}

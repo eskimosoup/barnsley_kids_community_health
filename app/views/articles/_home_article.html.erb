@@ -3,7 +3,7 @@
     <div class="<%= presented_article.classes %> columns">
       <h2><%= presented_article.linked_title %></h2>
 
-      <%= truncate(presented_article.summary, length: 88) %>
+      <%= presented_article.summary(88) %>
     </div>
 
     <%= presented_article.home_image_div %>

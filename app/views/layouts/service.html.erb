@@ -12,14 +12,16 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="small-3 columns">
-    <%= render "layouts/service_navigation" if @service_menu %>
+<section class="separated-section service-layout <%= @presented_service.colour %> lightest-grey-background">
+  <div class="row">
+    <div class="small-3 columns">
+      <%= render "layouts/service_navigation" if @service_menu %>
+    </div>
+    <div class="small-9 columns">
+      <%= yield %>
+    </div>
   </div>
-  <div class="small-9 columns">
-    <%= yield %>
-  </div>
-</div>
+</section>
 
 <%= render "layouts/footer" %>
 </body>

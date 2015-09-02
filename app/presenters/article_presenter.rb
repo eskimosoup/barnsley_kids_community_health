@@ -9,8 +9,8 @@ class ArticlePresenter < BasePresenter
     h.link_to article.title, article
   end
 
-  def summary
-    h.simple_format article.summary
+  def summary(length = nil)
+    h.simple_format article_summary(length)
   end
 
   def content
@@ -18,7 +18,7 @@ class ArticlePresenter < BasePresenter
   end
 
   def date(format = :long)
-    h.content_tag :span, class: 'date' do
+    h.content_tag :div, class: 'article-date' do
       h.l article.date, format: format
     end
   end
@@ -61,6 +61,12 @@ class ArticlePresenter < BasePresenter
   end
 
   private
+
+  def article_summary(length)
+    summary = article.summary if length.blank?
+    summary = h.truncate(article.summary, length: length) unless length.blank?
+    summary
+  end
 
   def image?
     article.image?
