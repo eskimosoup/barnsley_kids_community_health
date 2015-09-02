@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901145510) do
+ActiveRecord::Schema.define(version: 20150902143623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 20150901145510) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "contact_details", force: :cascade do |t|
+    t.integer  "service_id"
+    t.string   "name",         null: false
+    t.text     "address"
+    t.string   "postcode"
+    t.string   "phone_number"
+    t.string   "email",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "contact_details", ["service_id"], name: "index_contact_details_on_service_id", using: :btree
+
   create_table "frequently_asked_questions", force: :cascade do |t|
     t.string   "question",                  null: false
     t.text     "answer",                    null: false
@@ -61,6 +74,14 @@ ActiveRecord::Schema.define(version: 20150901145510) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.text     "content",                      null: false
+    t.text     "opening_times"
+    t.boolean  "display",       default: true
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
@@ -209,6 +230,7 @@ ActiveRecord::Schema.define(version: 20150901145510) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "contact_details", "services"
   add_foreign_key "pages", "services"
   add_foreign_key "service_frequently_asked_questions", "frequently_asked_questions"
   add_foreign_key "service_frequently_asked_questions", "services"

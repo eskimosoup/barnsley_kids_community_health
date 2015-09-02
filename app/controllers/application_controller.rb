@@ -27,9 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_service
-    #@service = Service.find_by(subdomain: request.subdomain)
-    @service = Service.find(1)
-    @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
+    @service = Service.displayed.find_by(subdomain: request.subdomain)
   end
 
   def set_service_navigation

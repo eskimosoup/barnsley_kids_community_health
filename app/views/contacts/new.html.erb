@@ -5,6 +5,12 @@
         <h1>Contact Us</h1>
 
         <div class="content-wrap">
+          <% if @contact_detail %>
+            <% @presented_contact_detail.name %>
+            <%= @presented_contact_detail.address %>
+            <%= @presented_contact_detail.postcode %>
+            <%= @presented_contact_detail.phone_number %>
+          <% end %>
           <%= render "form" %>
         </div>
       </div>

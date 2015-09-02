@@ -1,5 +1,8 @@
 class ApplicationMailer < ActionMailer::Base
 
+  layout 'mailer'
+  default from: Proc.new{ site_email }
+
   def site_email
     @site_email = begin
       site_setting = Optimadmin::SiteSetting.find_by(key: "Email")
@@ -21,8 +24,4 @@ class ApplicationMailer < ActionMailer::Base
       end
     end
   end
-
-  default from: site_email
-  layout 'mailer'
-
 end
