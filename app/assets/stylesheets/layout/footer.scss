@@ -1,4 +1,39 @@
 footer {
   color: $footer-text-blue;
   background-color: $footer-blue;
+  padding: em(43px) 0 em(53px);
+}
+
+.footer-navigation {
+  margin: 0 0 em(32px);
+
+  li {
+    padding: 0 0 0 em(15px);
+
+    &:after {
+      content: '/';
+      padding-left: em(15px);
+    }
+
+    &:last-of-type:after {
+      content: '';
+      padding-left: 0;
+    }
+  }
+
+  a {
+    font-size: em(12px);
+    text-transform: uppercase;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $white;
+    }
+  }
+}
+
+.footer-all-of-us-logo {
+  margin: em(8px) 0 0;
 }

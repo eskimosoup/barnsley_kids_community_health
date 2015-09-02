@@ -1,6 +1,15 @@
 <div class="small-12 medium-4 columns service <%= presented_service.colour %>">
-  <div class="content">
-    <%= presented_service.linked_name %>
-  </div>
-  <%= image_tag "http://placebear.com/150/150" %>
+  <%= link_to presented_service.subdomain_link do %>
+    <div class="content">
+      <div class="service-icon">
+        <%= presented_service.icon %>
+      </div>
+
+      <div class="service-name">
+        <%= presented_service.name %>
+      </div>
+    </div>
+
+    <%= image_tag "http://placehold.it/150", class: 'service-image' %>
+  <% end %>
 </div>

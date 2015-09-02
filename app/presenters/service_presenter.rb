@@ -6,6 +6,10 @@ class ServicePresenter < BasePresenter
     h.link_to name, subdomain_link
   end
 
+  def icon
+    #h.image_tag service.icon.thumb.url, width: 32, height: 32
+  end
+
   def colour
     service.colour.tr("_", "-")
   end
@@ -18,10 +22,8 @@ class ServicePresenter < BasePresenter
     ["service-header", colour].join(" ")
   end
 
-  private
-
   def subdomain_link
-    [subdomain, h.request.host_with_port].join(".")
+    "http://" + [subdomain, h.request.host_with_port].join(".")
   end
 
 end

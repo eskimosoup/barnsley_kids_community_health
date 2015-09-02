@@ -1,10 +1,14 @@
-<div class="article row">
-  <div class="<%= presented_article.classes %>">
-    <h3><%= presented_article.title %></h3>
+<div class="content-box">
+  <div class="row">
+    <div class="<%= presented_article.classes %> columns">
+      <h2><%= presented_article.linked_title %></h2>
 
-    <%= presented_article.summary %>
+      <%= presented_article.summary(88) %>
+    </div>
 
-    <%= presented_article.read_more %>
+    <%= presented_article.home_image_div %>
+
+
+    <%= link_to 'All news >', articles_path, title: 'View all news', class: 'view-all' %>
   </div>
-  <%= presented_article.home_image_div %>
 </div>

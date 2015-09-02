@@ -1,0 +1,37 @@
+%page-content-box-paragraph {
+  color: $page-secondary-text-color;
+  font-size: em(13px);
+  line-height: 2;
+
+  &:first-of-type {
+    color: $page-text-color;
+  }
+}
+
+.page {
+  h1 {
+    border-bottom: 1px solid $nav-dark-blue;
+    font-size: em(16px);
+    font-weight: $primary-font-semibold;
+    color: $bright-blue;
+    padding: 0 em(30px, 16px) em(30px, 16px);
+  }
+
+  .content-wrap {
+    @extend %clearfix;
+    padding: em(30px, 16px) em(30px, 16px) 0;
+  }
+
+  p {
+    @extend %page-content-box-paragraph;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $nav-dark-blue;
+    font-weight: $primary-font-semibold;
+  }
+}

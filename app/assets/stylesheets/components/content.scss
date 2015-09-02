@@ -1,0 +1,60 @@
+%content-box-shadow {
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .22);
+  -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, .22);
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .22);
+}
+
+.content-box {
+  @include border-radius(4px);
+  @extend %content-box-shadow;
+  background: $white;
+  padding: em(33px);
+}
+
+.home .content-box {
+  height: 151px;
+  margin: em(7px);
+  padding: em(33px) em(14px) em(3px);
+  position: relative;
+
+  h2 {
+    font-size: em(15px);
+    margin: 0 0 em(17px, 15px);
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: $deep-grey;
+    }
+  }
+
+  p {
+    color: $secondary-grey;
+    font-size: em(13px);
+    line-height: 1.1;
+  }
+
+  .view-all {
+    display: block;
+    font-size: em(11px);
+    left: 74%;
+    width: 100%;
+
+    @include responsive-to(large) {
+      position: absolute;
+      bottom: 10px;
+    }
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $secondary-grey;
+    }
+  }
+}
+
+.separated-section {
+  padding: em(40px) 0;
+}
