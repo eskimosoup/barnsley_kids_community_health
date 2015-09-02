@@ -19,6 +19,8 @@ class Service < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :colour, presence: true, inclusion: { in: COLOURS }
+  validates :subdomain, presence: true, uniqueness: true
+  validates :menu_name, presence: true, uniqueness: true, inclusion: { in: MENU_NAMES }
 
   def slug_candidates
     [

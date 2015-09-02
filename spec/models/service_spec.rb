@@ -7,6 +7,11 @@ RSpec.describe Service, type: :model do
     it { should validate_presence_of(:colour) }
     it { should validate_inclusion_of(:colour).in_array(Service::COLOURS) }
     it { should validate_uniqueness_of(:name) }
+    it { should validate_presence_of(:subdomain) }
+    it { should validate_uniqueness_of(:subdomain) }
+    it { should validate_presence_of(:menu_name) }
+    it { should validate_uniqueness_of(:menu_name) }
+    it { should validate_inclusion_of(:menu_name).in_array(Service::MENU_NAMES) }
   end
 
   describe "associations", :association do
