@@ -5,8 +5,12 @@ class ArticlePresenter < BasePresenter
     article.title
   end
 
-  def summary
-    h.simple_format article.summary
+  def linked_title
+    h.link_to article.title, article
+  end
+
+  def summary(length = nil)
+    h.simple_format article_summary(length)
   end
 
   def content
@@ -14,7 +18,7 @@ class ArticlePresenter < BasePresenter
   end
 
   def date(format = :long)
-    h.content_tag :span, class: 'date' do
+    h.content_tag :div, class: 'article-date' do
       h.l article.date, format: format
     end
   end
@@ -25,20 +29,20 @@ class ArticlePresenter < BasePresenter
 
   def classes
     if image?
-      "small-8 columns"
+      "medium-8 columns"
     else
-      "small-12 columns"
+      "medium-12 columns"
     end
   end
 
   def index_image_div
     return nil unless index_image
-    h.content_tag :div, index_image, class: "small-4 columns"
+    h.content_tag :div, index_image, class: "medium-4 columns"
   end
 
   def home_image_div
     return nil unless home_image
-    h.content_tag :div, home_image, class: "small-4 columns"
+    h.content_tag :div, (h.link_to home_image, article, title: article.title), class: "medium-4 columns"
   end
 
   def index_image
@@ -58,11 +62,17 @@ class ArticlePresenter < BasePresenter
 
   private
 
+  def article_summary(length)
+    summary = article.summary if length.blank?
+    summary = h.truncate(article.summary, length: length) unless length.blank?
+    summary
+  end
+
   def image?
     article.image?
   end
 
   def image(version)
-    h.image_tag article.image.url(version)
+    h.image_tag article.image.url(version), alt: article.title
   end
 end

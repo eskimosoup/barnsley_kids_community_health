@@ -1,11 +1,23 @@
-<div class="row">
-  <div class="small-12 columns">
-    <h1><%= @presented_article.title %></h1>#
+<section class="separated-section page lightest-grey-background">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="content-box">
+        <h1><%= @presented_article.title %></h1>
 
-    <%= @presented_article.date %>
+        <div class="content-wrap">
+          <%= @presented_article.date %>
 
-    <%= @presented_article.show_image %>
+          <div class="image-right">
+            <%= @presented_article.show_image %>
+          </div>
 
-    <%= @presented_article.content %>
+          <%= @presented_article.content %>
+
+          <div>
+            <%= link_to 'View all articles', articles_path, class: 'button' %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

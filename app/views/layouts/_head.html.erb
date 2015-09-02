@@ -1,7 +1,15 @@
 <head>
-  <title><%= global_site_settings['Name'] %></title>
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <title><%= "#{@title} - " if @title %><%= global_site_settings['Name'] %></title>
+
+  <meta name="description" content="<%= @meta_description %>" />
+  <meta name="keywords"    content="<%= @meta_tags %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400+600+700|PT+Serif:400italic|Lato:700' %>
+
+  <%= yield :head %>
 </head>

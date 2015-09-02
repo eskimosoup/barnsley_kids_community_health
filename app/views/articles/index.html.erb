@@ -1,6 +1,17 @@
 <div class="row">
   <div class="small-12 columns">
-    <h1>News</h1>
-    <%= render partial: "articles/article", collection: @presented_articles, as: :presented_article %>
+
   </div>
 </div>
+
+<section class="separated-section page lightest-grey-background">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="content-box">
+        <h1>News</h1>
+      </div>
+
+      <%= render partial: "articles/article", collection: @presented_articles, as: :presented_article %>
+    </div>
+  </div>
+</section>

@@ -1,23 +1,39 @@
 /* Home Page Service Styling */
 
 .home.services {
+
   .service {
+    margin: em(5px) 0 0;
     height: 158px;
     position: relative;
     .content {
       width: 202px;
       height: 158px;
+      line-height: 1.25;
       position: absolute;
       top: 0;
-      left: 1em;
+      left: 5px;
       z-index: 1;
+      padding: 30px 59px 10px 10px;
+      text-align: center;
+      font-weight: $primary-font-semibold;
+      font-size: em(11px);
     }
-    img {
+    .service-image {
       position: absolute;
       top: 3px;
-      right: 17px;
+      right: 5px;
     }
   }
+
+  .service-icon {
+    margin-bottom: em(10px);
+  }
+
+  a {
+    color: $white;
+  }
+
   .service.pink .content {
     background: image-url("service/pink-mask.png") left no-repeat;
   }

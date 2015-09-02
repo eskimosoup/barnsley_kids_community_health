@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  */
+
+
 @import 'vendor/foundation',
 'vendor/normalize',
 'optimadmin/global/editor',
@@ -18,8 +20,14 @@
 'layout/footer',
 'layout/global',
 'layout/home',
+'layout/service',
+'layout/page',
+'components/flash_messages',
+'components/navigation',
+'components/twitter',
 'components/content',
 'components/forms',
 'components/articles',
 'components/banners',
+'components/testimonials',
 'components/services';

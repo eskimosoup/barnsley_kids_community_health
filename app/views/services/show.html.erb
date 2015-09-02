@@ -7,23 +7,29 @@
     </div>
     <div class="row">
       <div class="small-12 columns">
-        <div class="<%= @presented_service.heading_classes %>">
-          <h1><%= @presented_service.name %></h1>
-        </div>
+        <div class="content-box">
+          <div class="<%= @presented_service.heading_classes %>">
+            <h1><%= @presented_service.name %></h1>
+          </div>
 
-        <%= @presented_service.overview %>
+          <%= @presented_service.overview %>
+        </div>
       </div>
     </div>
 
     <div class="row">
       <% unless @presented_testimonials.blank? %>
         <div class="small-6 columns">
-          <h3>Testimonials</h3>
-          <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+          <div class="content-box">
+            <h3>Testimonials</h3>
+            <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+          </div>
         </div>
       <% end %>
       <div class="small-6 columns">
-        <h3>Opening Times</h3>
+        <div class="content-box">
+          <h3>Opening Times</h3>
+        </div>
       </div>
       <% unless @presented_faqs.blank? %>
         <div class="small-6 columns">

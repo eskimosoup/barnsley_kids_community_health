@@ -16,3 +16,4 @@
 //= require vendor/foundation/foundation.js
 //= require vendor/foundation/foundation.equalizer.js
 // require_tree .
+$(document).foundation();
