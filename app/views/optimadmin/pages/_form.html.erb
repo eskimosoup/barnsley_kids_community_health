@@ -53,6 +53,11 @@
     </div>
 
     <div class="field">
+      <%= f.label :service_id %><br/>
+      <%= f.select :service_id, Service.order(name: :asc).pluck(:name, :id), include_blank: true %>
+    </div>
+
+    <div class="field">
       <%= f.label :suggested_url %><br />
       <%= f.text_field :suggested_url %>
     </div>

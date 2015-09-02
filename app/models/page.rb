@@ -1,8 +1,12 @@
 class Page < ActiveRecord::Base
+
+  belongs_to :service
+
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 
   mount_uploader :image, PageUploader
+
   scope :displayed, ->{ where(display: true) }
 
   before_save :store_image, if: Proc.new{|page| page.remote_image_url.blank? }
