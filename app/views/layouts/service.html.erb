@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<%= render "layouts/head" %>
+<body>
+<%= render "layouts/header" %>
+
+<div class="row">
+  <div class="small-12 columns">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-3 columns">
+    <%= render "layouts/service_navigation" if @service_menu %>
+  </div>
+  <div class="small-9 columns">
+    <%= yield %>
+  </div>
+</div>
+
+<%= render "layouts/footer" %>
+</body>
+</html>
