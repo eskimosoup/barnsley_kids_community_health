@@ -42,12 +42,13 @@ module Optimadmin
 
 
     def set_service
-      @service = Service.find(params[:id])
+      @service = Service.friendly.find(params[:id])
     end
 
     def service_params
-      params.require(:service).permit(:name, :icon, :icon_cache, :remote_icon_url, :image, :image_cache, :remote_image_url, :suggested_url, :overview, :display,
-      testimonial_ids: [], frequently_asked_question_ids: [])
+      params.require(:service).permit(:name, :icon, :icon_cache, :remote_icon_url, :image, :image_cache, :remote_image_url,
+                                      :suggested_url, :overview, :display, :menu_name, :subdomain,
+                                      testimonial_ids: [], frequently_asked_question_ids: [])
     end
   end
 end
