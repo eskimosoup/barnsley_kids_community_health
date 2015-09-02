@@ -34,7 +34,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -61,6 +61,10 @@ RSpec.configure do |config|
   config.include SiteSettingsMacros, type: :feature
   config.before(:each, type: :feature) { reset_email }
   config.before(:each, type: :feature) do
+    create(:site_setting_name)
+    create(:site_setting_email)
+  end
+  config.before(:each, type: :mailer) do
     create(:site_setting_name)
     create(:site_setting_email)
   end

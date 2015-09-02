@@ -40,7 +40,10 @@
           <li><%= link_to 'Testimonials', testimonials_path %></li>
         <% end %>
         <% if can? :manage, FrequentlyAskedQuestion %>
-        <li><%= link_to 'Frequently Asked Questions', frequently_asked_questions_path %></li>
+          <li><%= link_to 'Frequently Asked Questions', frequently_asked_questions_path %></li>
+        <% end %>
+        <% if can? :manage, ContactDetail %>
+          <li><%= link_to 'Contact Details', contact_details_path %></li>
         <% end %>
       </ul>
 

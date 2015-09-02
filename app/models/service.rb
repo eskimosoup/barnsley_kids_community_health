@@ -1,7 +1,7 @@
 class Service < ActiveRecord::Base
   COLOURS = %w( pink light_purple dark_purple light_blue dark_blue turquoise green dark_green )
 
-  MENU_NAMES = NavigationMenus.delete_if { |name| %w( header footer ).include?(name) }
+  MENU_NAMES = NavigationMenus.dup.delete_if { |name| %w( header footer ).include?(name) }
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
@@ -21,6 +21,9 @@ class Service < ActiveRecord::Base
   validates :colour, presence: true, inclusion: { in: COLOURS }
   validates :subdomain, presence: true, uniqueness: true
   validates :menu_name, presence: true, uniqueness: true, inclusion: { in: MENU_NAMES }
+
+
+
 
   def slug_candidates
     [

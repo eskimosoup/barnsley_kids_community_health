@@ -4,12 +4,12 @@ class PagesController < ApplicationController
   def show
     @presented_page = PagePresenter.new(object: @page, view_template: view_context)
     return redirect_to @page, status: :moved_permanently if request.path != page_path(@page)
-    render layout: @page.layout
+    # render layout: @page.layout I don't think this wants to be here
   end
 
   private
 
     def set_page
-      @page = Page.displayed.friendly.find(params[:id])
+      @page = Page.for_service(@service).displayed.friendly.find(params[:id])
     end
 end

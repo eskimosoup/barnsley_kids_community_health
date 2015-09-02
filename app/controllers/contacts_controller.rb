@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
 
+  before_action :set_contact_detail
+
   def new
     @contact = Contact.new
   end
@@ -7,7 +9,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.valid?
-      ContactMailer.new_contact(@contact).deliver_now
+      ContactMailer.new_contact(@contact, @contact_detail).deliver_now
       redirect_to new_contact_path, notice: "Thank you for contacting us"
     else
       render :new
@@ -18,5 +20,10 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:name, :phone_number, :email, :message)
+  end
+
+  def set_contact_detail
+    @contact_detail = ContactDetail.for_service(@service)
+    @presented_contact_detail = ContactDetailPresenter.new(object: @contact_detail, view_template: view_context) if @contact_detail
   end
 end
