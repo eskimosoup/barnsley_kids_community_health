@@ -13,7 +13,6 @@ RSpec.describe FrequentlyAskedQuestionPresenter, type: :presenter do
       content = raw(frequently_asked_question.answer)
       expect(frequently_asked_question_presenter.answer).to eq(content)
     end
-
   end
 
 end

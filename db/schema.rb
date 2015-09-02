@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901103911) do
+ActiveRecord::Schema.define(version: 20150901130836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,7 +157,10 @@ ActiveRecord::Schema.define(version: 20150901103911) do
     t.text     "content",                      null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "service_id"
   end
+
+  add_index "pages", ["service_id"], name: "index_pages_on_service_id", using: :btree
 
   create_table "service_frequently_asked_questions", force: :cascade do |t|
     t.integer  "service_id"
@@ -204,6 +207,7 @@ ActiveRecord::Schema.define(version: 20150901103911) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "pages", "services"
   add_foreign_key "service_frequently_asked_questions", "frequently_asked_questions"
   add_foreign_key "service_frequently_asked_questions", "services"
   add_foreign_key "service_testimonials", "services"
