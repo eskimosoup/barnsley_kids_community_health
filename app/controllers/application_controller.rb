@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
 
   def index
     if @service
-      @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
       @presented_testimonials = BaseCollectionPresenter.new(collection: @service.testimonials.displayed, view_template: view_context, presenter: TestimonialPresenter)
       @presented_faqs = BaseCollectionPresenter.new(collection: @service.frequently_asked_questions.displayed, view_template: view_context,
                                                     presenter: FrequentlyAskedQuestionPresenter)
+      @presented_locations = BaseCollectionPresenter.new(collection: @service.locations.displayed, view_template: view_context, presenter: LocationPresenter)
       render template: "services/show"
     else
       @presented_banners = BaseCollectionPresenter.new(collection: Banner.displayed.order(position: :asc), view_template: view_context, presenter: BannerPresenter)
@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
 
   def set_service
     @service = Service.displayed.find_by(subdomain: request.subdomain)
+    @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
   end
 
   def set_service_navigation

@@ -87,6 +87,15 @@
         </div>
       <% end %>
 
+      <%= field_set_tag "Locations" do %>
+        <div class="field">
+          <%= f.collection_check_boxes(:location_ids, Location.order(name: :asc), :id, :name) do |b| %>
+            <%= b.check_box %>
+            <%= b.label %><br/>
+          <% end %>
+        </div>
+      <% end %>
+
       <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>

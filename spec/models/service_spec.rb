@@ -20,5 +20,7 @@ RSpec.describe Service, type: :model do
     it { should have_many(:service_frequently_asked_questions).dependent(:destroy) }
     it { should have_many(:frequently_asked_questions).through(:service_frequently_asked_questions) }
     it { should have_many(:pages).dependent(:nullify) }
+    it { should have_many(:service_locations).dependent(:destroy) }
+    it { should have_many(:locations).through(:service_locations) }
   end
 end

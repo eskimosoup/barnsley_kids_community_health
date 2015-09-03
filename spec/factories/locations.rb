@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :location do
-    content "MyText"
-opening_times "MyText"
-display false
+    content "<p>MyText</p>"
+    opening_times "<p>MyText</p>"
+    display true
   end
 
 end

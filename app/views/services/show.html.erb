@@ -26,11 +26,14 @@
           </div>
         </div>
       <% end %>
-      <div class="small-6 columns">
-        <div class="content-box">
-          <h3>Opening Times</h3>
+      <% unless @presented_locations.blank? %>
+        <div class="small-6 columns">
+          <div class="content-box">
+            <h3>Opening Times</h3>
+            <%= render partial: "locations/location", collection: @presented_locations, as: :presented_location %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <% unless @presented_faqs.blank? %>
         <div class="small-6 columns">
           <h3>Frequently Asked Questions</h3>
