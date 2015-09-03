@@ -1,0 +1,16 @@
+.faq {
+  border-bottom: 1px solid $light-grey;
+  padding: em(5px) 0;
+  margin: em(7px) 0;
+}
+
+.faq-question {
+  font-size: em(16px);
+  font-weight: $primary-font-semibold;
+  line-height: 1.25;
+}
+
+.service-layout .faq-answer p {
+  margin: em(5px) 0;
+  line-height: 1.5;
+}

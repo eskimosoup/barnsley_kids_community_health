@@ -65,5 +65,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
 end
 
+gem 'twitter'
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
 gem 'friendly_id', '~> 5.1.0'
