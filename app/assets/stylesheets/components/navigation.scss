@@ -31,10 +31,6 @@
     font-size: em(16px);
     padding: em(20px, 16px);
     text-transform: uppercase;
-
-    &.active {
-      background-color: $nav-dark-blue;
-    }
   }
 
   .has-dropdown {
@@ -44,13 +40,14 @@
       padding-right: em(27px);
     }
 
-    &:hover {
+    &:hover,
+    &.active {
       background-color: $nav-dark-blue;
     }
   }
 }
 
-.dropdown {
+.primary-navigation .dropdown {
   background: $nav-blue;
   display: none;
   margin: 0;

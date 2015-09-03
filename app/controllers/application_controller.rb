@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   def index
     if @service
-      @presented_service = ServicePresenter.new(object: @service, view_template: view_context)
       @presented_testimonials = BaseCollectionPresenter.new(collection: @service.testimonials.displayed, view_template: view_context, presenter: TestimonialPresenter)
       @presented_faqs = BaseCollectionPresenter.new(collection: @service.frequently_asked_questions.displayed, view_template: view_context,
                                                     presenter: FrequentlyAskedQuestionPresenter)
@@ -28,6 +27,9 @@ class ApplicationController < ActionController::Base
 
   def set_service
     @service = Service.displayed.find_by(subdomain: request.subdomain)
+    @service = Service.find(1)
+    # this has to be here to be global
+    @presented_service = ServicePresenter.new(object: @service, view_template: view_context) if @service
   end
 
   def set_service_navigation

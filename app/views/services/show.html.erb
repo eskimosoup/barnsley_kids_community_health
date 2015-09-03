@@ -1,42 +1,54 @@
-<div class="row">
-  <div class="small-12 columns">
-    <div class="row">
-      <div class="small-12 columns">
-        Service Banner
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 columns">
-        <div class="content-box">
-          <div class="<%= @presented_service.heading_classes %>">
-            <h1><%= @presented_service.name %></h1>
-          </div>
+<div class="separated-section">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="service-banner">
+            <div class="service-banner-content">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad
+            </div>
 
-          <%= @presented_service.overview %>
+            <div class="service-banner-image">
+              <%= @presented_service.banner_image %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="content-box">
+            <div class="<%= @presented_service.heading_classes %>">
+              <h1><%= @presented_service.name %></h1>
+            </div>
 
-    <div class="row">
-      <% unless @presented_testimonials.blank? %>
+            <%= @presented_service.overview %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <% unless @presented_testimonials.blank? %>
+          <div class="small-6 columns">
+            <div class="content-box">
+              <h3 class="styled-title">Testimonials</h3>
+              <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+            </div>
+          </div>
+        <% end %>
         <div class="small-6 columns">
           <div class="content-box">
-            <h3>Testimonials</h3>
-            <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+            <h3 class="styled-title">Opening Times</h3>
           </div>
         </div>
-      <% end %>
-      <div class="small-6 columns">
-        <div class="content-box">
-          <h3>Opening Times</h3>
-        </div>
+        <% unless @presented_faqs.blank? %>
+          <div class="small-6 columns">
+            <h3>Frequently Asked Questions</h3>
+            <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
+          </div>
+        <% end %>
       </div>
-      <% unless @presented_faqs.blank? %>
-        <div class="small-6 columns">
-          <h3>Frequently Asked Questions</h3>
-          <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

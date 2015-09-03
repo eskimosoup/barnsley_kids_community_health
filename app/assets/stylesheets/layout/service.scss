@@ -17,9 +17,23 @@ $service-dark-green: #129B94;
   }
 
   .content-box h1,
-  .content-box h3 {
+  .content-box .styled-title {
     color: $service-pink;
     border-color: $service-pink;
+  }
+
+  .content-box h1,
+  .content-box h2,
+  .content-box h3,
+  .content-box h4,
+  .content-box h5,
+  .content-box h6 {
+    color: $service-pink;
+  }
+
+
+  .service-banner-content {
+    background: image-url('service/pink-banner-mask.png') top left no-repeat;
   }
 }
 
@@ -44,7 +58,7 @@ $service-dark-green: #129B94;
   margin: 0 0 em(30px);
 
   h1,
-  h3 {
+  .styled-title {
     border-bottom-style: solid;
     border-bottom-width: 2px;
     font-size: em(16px);
@@ -53,7 +67,7 @@ $service-dark-green: #129B94;
     padding-bottom: em(12px, 16px);
   }
 
-  h3 {
+  .styled-title {
     padding-bottom: em(30px, 16px);
     text-align: center;
   }
@@ -74,20 +88,24 @@ $service-dark-green: #129B94;
   margin: em(4px) 0 0;
   padding-bottom: em(23px);
 
-  ul {
+  .top-level {
     background: $nav-dark-blue;
     padding-bottom: em(76px);
   }
 
-  li {
+  .menu-item-depth-1 {
     display: block;
-    border-bottom: 1px solid $nav-light-border;
-    margin: 0 em(20px);
+
+    &:hover ul {
+      display: block;
+    }
   }
 
   a {
     display: block;
+    border-bottom: 1px solid $nav-light-border;
     font-weight: $primary-font-semibold;
+    margin: 0 em(20px);
     padding: em(20px) em(24px);
 
     &:link,
@@ -96,5 +114,56 @@ $service-dark-green: #129B94;
     &:active {
       color: $white;
     }
+  }
+
+  .has-dropdown {
+    background: image-url('components/navigation/dropdown.png') 90% 30px no-repeat;
+  }
+}
+
+.service-navigation-wrap .dropdown {
+  display: none;
+  background: $white;
+  margin: 0;
+  padding: em(15px) 0;
+
+  a {
+    border: 0;
+    font-size: em(13px);
+    font-weight: $primary-font-semibold;
+    padding: em(10px, 13px) 0 em(10px, 13px) em(44px, 13px);
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $nav-dark-blue;
+    }
+  }
+}
+
+.service-banner {
+  position: relative;
+  height: 188px;
+  overflow: hidden;
+  margin: 0 0 em(33px);
+
+  .service-banner-content {
+    color: $white;
+    height: 188px;
+    left: 0;
+    padding: em(60px) em(132px) em(60px) em(26px);
+    position: absolute;
+    top: 0;
+    width: 432px;
+    z-index: 2;
+  }
+
+
+  .service-banner-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
   }
 }

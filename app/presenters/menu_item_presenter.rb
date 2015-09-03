@@ -14,6 +14,12 @@ class MenuItemPresenter < BasePresenter
     h.link_to name, destination, title: title_attribute, class: classes
   end
 
+  def li_classes
+    classes = ["menu-item"]
+    classes << "active" if active?
+    classes.join(' ')
+  end
+
   def classes
     classes = ["menu-link"]
     classes << "active" if active?
