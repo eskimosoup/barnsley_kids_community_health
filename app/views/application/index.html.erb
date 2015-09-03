@@ -29,7 +29,7 @@
   <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
 
   <div class="small-12 medium-4 columns">
-    <%= render "articles/home_article", presented_article: @presented_article %>
+    <%= render "articles/home_article", presented_article: @presented_article if @presented_article %>
   </div>
 </section>
 

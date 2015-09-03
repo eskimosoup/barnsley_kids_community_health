@@ -14,6 +14,8 @@ class Service < ActiveRecord::Base
   has_many :service_frequently_asked_questions, dependent: :destroy
   has_many :frequently_asked_questions, through: :service_frequently_asked_questions
   has_many :pages, dependent: :nullify
+  has_many :service_locations, dependent: :destroy
+  has_many :locations, through: :service_locations
 
   scope :displayed, -> { where(display: true) }
 
@@ -21,9 +23,6 @@ class Service < ActiveRecord::Base
   validates :colour, presence: true, inclusion: { in: COLOURS }
   validates :subdomain, presence: true, uniqueness: true
   validates :menu_name, presence: true, uniqueness: true, inclusion: { in: MENU_NAMES }
-
-
-
 
   def slug_candidates
     [

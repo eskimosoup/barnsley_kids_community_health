@@ -23,7 +23,7 @@ class ServicePresenter < BasePresenter
   end
 
   def subdomain_link
-    "http://" + [subdomain, h.request.host_with_port].join(".")
+    h.request.protocol + subdomain + "." + h.request.host_with_port
   end
 
 end
