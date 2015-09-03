@@ -1,45 +1,85 @@
-<div class="row">
-  <div class="small-12 columns">
-    <div class="row">
-      <div class="small-12 columns">
-        Service Banner
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 columns">
-        <div class="content-box">
-          <div class="<%= @presented_service.heading_classes %>">
-            <h1><%= @presented_service.name %></h1>
-          </div>
+<%= content_for :footer do %>
+  <script>
+    $(function() {
+      $('.testimonials').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+      });
+    });
+  </script>
+<% end %>
 
-          <%= @presented_service.overview %>
+<div class="separated-section">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="service-banner">
+            <div class="service-banner-content">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad
+            </div>
+
+            <div class="service-banner-image">
+              <%= @presented_service.banner_image %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="row">
-      <% unless @presented_testimonials.blank? %>
-        <div class="small-6 columns">
+      <div class="row">
+        <div class="small-12 columns">
           <div class="content-box">
-            <h3>Testimonials</h3>
-            <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+            <div class="<%= @presented_service.heading_classes %>">
+              <h1><%= @presented_service.name %></h1>
+            </div>
+
+            <%= @presented_service.overview %>
           </div>
         </div>
-      <% end %>
+      </div>
+
+      <div class="row">
+        <% unless @presented_testimonials.blank? %>
+          <div class="medium-6 columns">
+            <div class="content-box">
+              <h3 class="styled-title">Testimonials</h3>
+
+              <div class="testimonials">
+                <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="medium-6 columns">
+          <div class="content-box">
+            <h3 class="styled-title">Opening Times</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
       <% unless @presented_locations.blank? %>
         <div class="small-6 columns">
           <div class="content-box">
-            <h3>Opening Times</h3>
+            <h3 class="styled-title">Locations</h3>
             <%= render partial: "locations/location", collection: @presented_locations, as: :presented_location %>
           </div>
         </div>
       <% end %>
       <% unless @presented_faqs.blank? %>
         <div class="small-6 columns">
-          <h3>Frequently Asked Questions</h3>
-          <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
+          <div class="content-box">
+            <h3 class="styled-title">Frequently Asked Questions</h3>
+            <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
+          </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

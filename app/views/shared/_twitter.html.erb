@@ -1,24 +1,18 @@
 <div class="twitter">
   <h4>Tweets</h4>
 
-  <%= link_to '@Barnsley019', global_site_settings['Twitter'],
+  <%= link_to "@#{global_site_settings['Twitter']}", "http://twitter.com/#{global_site_settings['Twitter']}",
       title: 'Follow us on Twitter', class: 'twitter-username' %>
 
-  <div class="twitter-tweet-wrap">
-    <p class="twitter-tweet">
-      If you're aged 13-19 we want to know what you want from our service.
-      Come &amp; see us today in #Barnsley bus station, we're here until 6pm!
-    </p>
+  <% [0, 1, 2].each do |index| %>
+    <div class="twitter-tweet-wrap">
+      <p class="twitter-tweet">
+        <%= raw twitter_timeline_text index %>
+      </p>
 
-    <div class="twitter-tweet-time">9 mins ago</div>
-  </div>
-
-  <div class="twitter-tweet-wrap">
-    <p class="twitter-tweet">
-      If you're aged 13-19 we want to know what you want from our service.
-      Come &amp; see us today in #Barnsley bus station, we're here until 6pm!
-    </p>
-
-    <div class="twitter-tweet-time">9 mins ago</div>
-  </div>
+      <div class="twitter-tweet-time">
+        <%= twitter_timeline_ago index %>
+      </div>
+    </div>
+  <% end %>
 </div>

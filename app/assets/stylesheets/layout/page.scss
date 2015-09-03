@@ -20,6 +20,14 @@
   .content-wrap {
     @extend %clearfix;
     padding: em(30px, 16px) em(30px, 16px) 0;
+
+    @include responsive-to(small) {
+      padding: 0;
+    }
+
+    @include responsive-to(medium) {
+      padding: em(20px) em(5px);
+    }
   }
 
   p {

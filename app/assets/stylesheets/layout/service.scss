@@ -1,33 +1,73 @@
 // Used for service layout specifics
 
-$service-pink: #E65EB8;
-$service-light-purple: #EEE8EF;
-$service-dark-purple: #63286A;
-$service-light-blue: #00AADA;
-$service-dark-blue: #5661A2;
-$service-turquoise: #95F3F5;
-$service-green: #55D18B;
-$service-dark-green: #129B94;
-
-.pink {
-  .service,
+@mixin service-colours($colour-variable, $colour-mask, $text-color: $white) {
+  .service-title,
   .service-navigation-wrap {
-    background: $service-pink;
+    background: $colour-variable;
     color: $white;
   }
 
   .content-box h1,
-  .content-box h3 {
-    color: $service-pink;
-    border-color: $service-pink;
+  .content-box .styled-title {
+    color: $colour-variable;
+    border-color: $colour-variable;
+  }
+
+  .content-box h1,
+  .content-box h2,
+  .content-box h3,
+  .content-box h4,
+  .content-box h5,
+  .content-box h6,
+  .faq-question a {
+    color: $colour-variable;
+  }
+
+
+  .service-banner-content {
+    background: image-url($colour-mask) top left no-repeat;
+  }
+
+  @include responsive-to(small) {
+    .service-banner-content {
+      background: $colour-variable;
+    }
   }
 }
 
-.light-purple {
-
+.pink {
+  @include service-colours($service-pink, 'service/pink-banner-mask.png')
 }
 
-.service {
+.light-purple {
+  @include service-colours($service-light-purple, 'service/light-purple-banner-mask.png', $dark-grey)
+}
+
+.dark-purple {
+  @include service-colours($service-dark-purple, 'service/dark-purple-banner-mask.png')
+}
+
+.light-blue {
+  @include service-colours($service-light-blue, 'service/light-blue-banner-mask.png')
+}
+
+.dark-blue {
+  @include service-colours($service-dark-blue, 'service/dark-blue-banner-mask.png')
+}
+
+.green {
+  @include service-colours($service-green, 'service/green-banner-mask.png')
+}
+
+.dark-green {
+  @include service-colours($service-dark-green, 'service/dark-green-banner-mask.png')
+}
+
+.turquoise {
+  @include service-colours($service-turquoise, 'service/turquoise-banner-mask.png')
+}
+
+.service-title {
   -webkit-border-top-left-radius: 4px;
   -webkit-border-top-right-radius: 4px;
   -moz-border-radius-topleft: 4px;
@@ -38,13 +78,27 @@ $service-dark-green: #129B94;
   font-weight: $primary-font-semibold;
   padding: em(16px, 16px) em(10px, 16px);
   text-align: center;
+
+  a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $white;
+    }
+  }
 }
 
 .service-layout .content-box {
   margin: 0 0 em(30px);
 
+  @include responsive-to(small) {
+    margin: 0 0 em(10px);
+  }
+
+
   h1,
-  h3 {
+  .styled-title {
     border-bottom-style: solid;
     border-bottom-width: 2px;
     font-size: em(16px);
@@ -53,7 +107,7 @@ $service-dark-green: #129B94;
     padding-bottom: em(12px, 16px);
   }
 
-  h3 {
+  .styled-title {
     padding-bottom: em(30px, 16px);
     text-align: center;
   }
@@ -74,20 +128,24 @@ $service-dark-green: #129B94;
   margin: em(4px) 0 0;
   padding-bottom: em(23px);
 
-  ul {
+  .top-level {
     background: $nav-dark-blue;
     padding-bottom: em(76px);
   }
 
-  li {
+  .menu-item-depth-1 {
     display: block;
-    border-bottom: 1px solid $nav-light-border;
-    margin: 0 em(20px);
+
+    &:hover ul {
+      display: block;
+    }
   }
 
   a {
     display: block;
+    border-bottom: 1px solid $nav-light-border;
     font-weight: $primary-font-semibold;
+    margin: 0 em(20px);
     padding: em(20px) em(24px);
 
     &:link,
@@ -95,6 +153,74 @@ $service-dark-green: #129B94;
     &:hover,
     &:active {
       color: $white;
+    }
+  }
+
+  .has-dropdown {
+    background: image-url('components/navigation/dropdown.png') 90% 30px no-repeat;
+  }
+}
+
+.service-navigation-wrap .dropdown {
+  display: none;
+  background: $white;
+  margin: 0;
+  padding: em(15px) 0;
+
+  a {
+    border: 0;
+    font-size: em(13px);
+    font-weight: $primary-font-semibold;
+    padding: em(10px, 13px) 0 em(10px, 13px) em(44px, 13px);
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $nav-dark-blue;
+    }
+  }
+}
+
+.service-banner {
+  position: relative;
+  height: 188px;
+  overflow: hidden;
+  margin: 0 0 em(33px);
+
+  @include responsive-to(small) {
+    position: static;
+    height: auto;
+  }
+
+  .service-banner-content {
+    color: $white;
+    height: 188px;
+    left: 0;
+    padding: em(60px) em(132px) em(60px) em(26px);
+    position: absolute;
+    top: 0;
+    width: 432px;
+    z-index: 2;
+
+    @include responsive-to(small) {
+      height: auto;
+      padding: em(10px);
+      position: static;
+      width: auto;
+    }
+  }
+
+
+  .service-banner-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    @include responsive-to(small) {
+      position: static;
+      width: auto;
     }
   }
 }

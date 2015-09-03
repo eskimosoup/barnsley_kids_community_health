@@ -9,6 +9,14 @@
   @extend %content-box-shadow;
   background: $white;
   padding: em(33px);
+
+  @include responsive-to(small) {
+    padding: em(15px) em(10px);
+  }
+
+  @include responsive-to(medium) {
+    padding: em(20px) em(10px);
+  }
 }
 
 .home .content-box {
@@ -57,4 +65,8 @@
 
 .separated-section {
   padding: em(40px) 0;
+
+  @include responsive-to(small) {
+    padding: em(10px) 0;
+  }
 }
