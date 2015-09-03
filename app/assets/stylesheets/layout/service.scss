@@ -1,25 +1,16 @@
 // Used for service layout specifics
 
-$service-pink: #E65EB8;
-$service-light-purple: #EEE8EF;
-$service-dark-purple: #63286A;
-$service-light-blue: #00AADA;
-$service-dark-blue: #5661A2;
-$service-turquoise: #95F3F5;
-$service-green: #55D18B;
-$service-dark-green: #129B94;
-
-.pink {
-  .service,
+@mixin service-colours($colour-variable, $colour-mask, $text-color: $white) {
+  .service-title,
   .service-navigation-wrap {
-    background: $service-pink;
+    background: $colour-variable;
     color: $white;
   }
 
   .content-box h1,
   .content-box .styled-title {
-    color: $service-pink;
-    border-color: $service-pink;
+    color: $colour-variable;
+    border-color: $colour-variable;
   }
 
   .content-box h1,
@@ -28,20 +19,54 @@ $service-dark-green: #129B94;
   .content-box h4,
   .content-box h5,
   .content-box h6 {
-    color: $service-pink;
+    color: $colour-variable;
   }
 
 
   .service-banner-content {
-    background: image-url('service/pink-banner-mask.png') top left no-repeat;
+    background: image-url($colour-mask) top left no-repeat;
+  }
+
+  @include responsive-to(small) {
+    .service-banner-content {
+      background: $colour-variable;
+    }
   }
 }
 
-.light-purple {
-
+.pink {
+  @include service-colours($service-pink, 'service/pink-banner-mask.png')
 }
 
-.service {
+.light-purple {
+  @include service-colours($service-light-purple, 'service/light-purple-banner-mask.png', $dark-grey)
+}
+
+.dark-purple {
+  @include service-colours($service-dark-purple, 'service/dark-purple-banner-mask.png')
+}
+
+.light-blue {
+  @include service-colours($service-light-blue, 'service/light-blue-banner-mask.png')
+}
+
+.dark-blue {
+  @include service-colours($service-dark-blue, 'service/dark-blue-banner-mask.png')
+}
+
+.green {
+  @include service-colours($service-green, 'service/green-banner-mask.png')
+}
+
+.dark-green {
+  @include service-colours($service-dark-green, 'service/dark-green-banner-mask.png')
+}
+
+.turquoise {
+  @include service-colours($service-turquoise, 'service/turquoise-banner-mask.png')
+}
+
+.service-title {
   -webkit-border-top-left-radius: 4px;
   -webkit-border-top-right-radius: 4px;
   -moz-border-radius-topleft: 4px;
@@ -52,10 +77,24 @@ $service-dark-green: #129B94;
   font-weight: $primary-font-semibold;
   padding: em(16px, 16px) em(10px, 16px);
   text-align: center;
+
+  a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: $white;
+    }
+  }
 }
 
 .service-layout .content-box {
   margin: 0 0 em(30px);
+
+  @include responsive-to(small) {
+    margin: 0 0 em(10px);
+  }
+
 
   h1,
   .styled-title {
@@ -148,6 +187,11 @@ $service-dark-green: #129B94;
   overflow: hidden;
   margin: 0 0 em(33px);
 
+  @include responsive-to(small) {
+    position: static;
+    height: auto;
+  }
+
   .service-banner-content {
     color: $white;
     height: 188px;
@@ -157,6 +201,13 @@ $service-dark-green: #129B94;
     top: 0;
     width: 432px;
     z-index: 2;
+
+    @include responsive-to(small) {
+      height: auto;
+      padding: em(10px);
+      position: static;
+      width: auto;
+    }
   }
 
 
@@ -165,5 +216,10 @@ $service-dark-green: #129B94;
     right: 0;
     top: 0;
     z-index: 1;
+
+    @include responsive-to(small) {
+      position: static;
+      width: auto;
+    }
   }
 }

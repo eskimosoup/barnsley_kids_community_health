@@ -1,3 +1,18 @@
+<%= content_for :footer do %>
+  <script>
+    $(function() {
+      $('.testimonials').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    });
+  </script>
+<% end %>
+
 <div class="separated-section">
   <div class="row">
     <div class="small-12 columns">
@@ -30,14 +45,17 @@
 
       <div class="row">
         <% unless @presented_testimonials.blank? %>
-          <div class="small-6 columns">
+          <div class="medium-6 columns">
             <div class="content-box">
               <h3 class="styled-title">Testimonials</h3>
-              <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+
+              <div class="testimonials">
+                <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
+              </div>
             </div>
           </div>
         <% end %>
-        <div class="small-6 columns">
+        <div class="medium-6 columns">
           <div class="content-box">
             <h3 class="styled-title">Opening Times</h3>
           </div>

@@ -6,6 +6,11 @@
     margin: em(5px) 0 0;
     height: 158px;
     position: relative;
+
+    @include responsive-to(small) {
+      max-width: 300px;
+    }
+
     .content {
       width: 202px;
       height: 158px;

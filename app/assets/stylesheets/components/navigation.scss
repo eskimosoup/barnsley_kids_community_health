@@ -10,6 +10,10 @@
     margin-left: -6px;
     vertical-align: bottom;
 
+    @include responsive-to(small) {
+      margin: 0;
+    }
+
     &:hover ul {
       display: block;
     }
@@ -17,6 +21,10 @@
     &:first-of-type a {
       background: image-url('components/navigation/border.png') right repeat-y,
                   image-url('components/navigation/border.png') left repeat-y;
+
+      @include responsive-to(small) {
+        background: none;
+      }
 
       &.active,
       &:hover {
@@ -31,6 +39,12 @@
     font-size: em(16px);
     padding: em(20px, 16px);
     text-transform: uppercase;
+
+    @include responsive-to(small) {
+      background: none;
+      font-size: em(12px);
+      padding: em(10px, 12px);
+    }
   }
 
   .has-dropdown {
@@ -54,6 +68,12 @@
   position: absolute;
   width: 100%;
   z-index: 10;
+
+  @include responsive-to(small) {
+    border-left: 1px solid $white;
+    border-right: 1px solid $white;
+    border-bottom: 1px solid $white;
+  }
 
   a {
     background: none;

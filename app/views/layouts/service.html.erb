@@ -14,12 +14,12 @@
 
 <section class="service-layout <%= @presented_service.colour %> lightest-grey-background">
   <div class="row">
-    <div class="small-3 columns">
+    <div class="medium-3 columns">
       <div class="separated-section">
         <%= render "layouts/service_navigation" if @service_menu %>
       </div>
     </div>
-    <div class="small-9 columns">
+    <div class="medium-9 columns">
       <%= yield %>
     </div>
   </div>

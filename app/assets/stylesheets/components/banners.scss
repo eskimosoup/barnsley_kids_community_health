@@ -3,6 +3,11 @@
   margin: em(22px) 0 em(20px);
   position: relative;
 
+  @include responsive-to(small) {
+    position: static;
+    height: auto;
+  }
+
   h1 {
     font-size: em(18px);
     margin: 0 0 em(10px);
@@ -23,11 +28,23 @@
     top: 0;
     width: 633px;
     z-index: 1;
+
+    @include responsive-to(small) {
+      background: $bright-blue;
+      height: auto;
+      padding: em(10px);
+      position: static;
+      width: auto;
+    }
   }
 
   img {
     position: absolute;
     right: 0;
     top: 0;
+
+    @include responsive-to(small) {
+      position: static;
+    }
   }
 }

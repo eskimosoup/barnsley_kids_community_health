@@ -1,9 +1,11 @@
-<div class="service <%= @presented_service.colour %>">
-  <%= @presented_service.icon %>
-  <%= @presented_service.name %>
+<div class="service-title <%= @presented_service.colour %>">
+  <%= link_to '#', class: 'toggle-class', data: { container: '.service-navigation-wrap', class: 'hide-for-small', return: 'true' } do %>
+    <%= @presented_service.icon %>
+    <%= @presented_service.name %>
+  <% end %>
 </div>
 
-<nav class="service-navigation-wrap <%= @presented_service.colour %>">
+<nav class="hide-for-small service-navigation-wrap <%= @presented_service.colour %>">
   <ul class="top-level navigation" id="service-navigation">
     <%= nested_menu_items(menu_items: @service_menu.menu_items) %>
   </ul>
