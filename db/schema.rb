@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902143623) do
+ActiveRecord::Schema.define(version: 20150903082918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,8 @@ ActiveRecord::Schema.define(version: 20150902143623) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.text     "content",                      null: false
+    t.string   "name",                         null: false
+    t.text     "content"
     t.text     "opening_times"
     t.boolean  "display",       default: true
     t.datetime "created_at",                   null: false
@@ -193,6 +194,16 @@ ActiveRecord::Schema.define(version: 20150902143623) do
   add_index "service_frequently_asked_questions", ["frequently_asked_question_id"], name: "faq_id_service_faq", using: :btree
   add_index "service_frequently_asked_questions", ["service_id"], name: "service_id_service_faq", using: :btree
 
+  create_table "service_locations", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "service_locations", ["location_id"], name: "index_service_locations_on_location_id", using: :btree
+  add_index "service_locations", ["service_id"], name: "index_service_locations_on_service_id", using: :btree
+
   create_table "service_testimonials", force: :cascade do |t|
     t.integer  "service_id"
     t.integer  "testimonial_id"
@@ -234,6 +245,8 @@ ActiveRecord::Schema.define(version: 20150902143623) do
   add_foreign_key "pages", "services"
   add_foreign_key "service_frequently_asked_questions", "frequently_asked_questions"
   add_foreign_key "service_frequently_asked_questions", "services"
+  add_foreign_key "service_locations", "locations"
+  add_foreign_key "service_locations", "services"
   add_foreign_key "service_testimonials", "services"
   add_foreign_key "service_testimonials", "testimonials"
 end

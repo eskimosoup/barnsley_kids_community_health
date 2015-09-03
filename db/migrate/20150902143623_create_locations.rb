@@ -1,7 +1,8 @@
 class CreateLocations < ActiveRecord::Migration
   def change
     create_table :locations do |t|
-      t.text :content, null: false
+      t.string :name, null: false
+      t.text :content
       t.text :opening_times
       t.boolean :display, default: true
 

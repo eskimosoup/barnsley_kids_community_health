@@ -60,12 +60,25 @@
             <h3 class="styled-title">Opening Times</h3>
           </div>
         </div>
-        <% unless @presented_faqs.blank? %>
-          <div class="small-6 columns">
-            <h3>Frequently Asked Questions</h3>
+      </div>
+
+      <div class="row">
+      <% unless @presented_locations.blank? %>
+        <div class="small-6 columns">
+          <div class="content-box">
+            <h3 class="styled-title">Locations</h3>
+            <%= render partial: "locations/location", collection: @presented_locations, as: :presented_location %>
+          </div>
+        </div>
+      <% end %>
+      <% unless @presented_faqs.blank? %>
+        <div class="small-6 columns">
+          <div class="content-box">
+            <h3 class="styled-title">Frequently Asked Questions</h3>
             <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
           </div>
-        <% end %>
+        </div>
+      <% end %>
       </div>
     </div>
   </div>

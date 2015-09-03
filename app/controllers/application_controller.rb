@@ -10,11 +10,13 @@ class ApplicationController < ActionController::Base
       @presented_testimonials = BaseCollectionPresenter.new(collection: @service.testimonials.displayed, view_template: view_context, presenter: TestimonialPresenter)
       @presented_faqs = BaseCollectionPresenter.new(collection: @service.frequently_asked_questions.displayed, view_template: view_context,
                                                     presenter: FrequentlyAskedQuestionPresenter)
+      @presented_locations = BaseCollectionPresenter.new(collection: @service.locations.displayed, view_template: view_context, presenter: LocationPresenter)
       render template: "services/show"
     else
       @presented_banners = BaseCollectionPresenter.new(collection: Banner.displayed.order(position: :asc), view_template: view_context, presenter: BannerPresenter)
       @presented_services = BaseCollectionPresenter.new(collection: Service.displayed.order(position: :asc), view_template: view_context, presenter: ServicePresenter)
-      @presented_article = ArticlePresenter.new(object: Article.published.order(date: :desc).first, view_template: view_context)
+      article = Article.published.order(date: :desc).first
+      @presented_article = ArticlePresenter.new(object: article, view_template: view_context) if article
     end
   end
 
@@ -27,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def set_service
     @service = Service.displayed.find_by(subdomain: request.subdomain)
-    @service = Service.find(5)
+    @service = Service.find(1)
     # this has to be here to be global
     @presented_service = ServicePresenter.new(object: @service, view_template: view_context) if @service
   end

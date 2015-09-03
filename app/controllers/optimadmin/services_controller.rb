@@ -48,7 +48,7 @@ module Optimadmin
     def service_params
       params.require(:service).permit(:name, :icon, :icon_cache, :remote_icon_url, :image, :image_cache, :remote_image_url,
                                       :suggested_url, :overview, :display, :menu_name, :subdomain,
-                                      testimonial_ids: [], frequently_asked_question_ids: [])
+                                      testimonial_ids: [], frequently_asked_question_ids: [], location_ids: [])
     end
   end
 end
