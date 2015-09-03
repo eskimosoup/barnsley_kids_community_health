@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
     else
       @presented_banners = BaseCollectionPresenter.new(collection: Banner.displayed.order(position: :asc), view_template: view_context, presenter: BannerPresenter)
       @presented_services = BaseCollectionPresenter.new(collection: Service.displayed.order(position: :asc), view_template: view_context, presenter: ServicePresenter)
-      @presented_article = ArticlePresenter.new(object: Article.published.order(date: :desc).first, view_template: view_context)
+      article = Article.published.order(date: :desc).first
+      @presented_article = ArticlePresenter.new(object: article, view_template: view_context) if article
     end
   end
 
