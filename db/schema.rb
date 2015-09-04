@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904101720) do
+ActiveRecord::Schema.define(version: 20150904103843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150904101720) do
     t.string   "name",         null: false
     t.text     "address"
     t.string   "postcode"
-    t.string   "phone_number"
+    t.text     "phone_number"
     t.string   "email",        null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -229,6 +229,7 @@ ActiveRecord::Schema.define(version: 20150904101720) do
     t.string   "suggested_url"
     t.string   "subdomain"
     t.string   "menu_name"
+    t.string   "tagline"
   end
 
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree

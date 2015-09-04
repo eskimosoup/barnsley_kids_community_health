@@ -2,10 +2,6 @@
   color: $page-secondary-text-color;
   font-size: em(13px);
   line-height: 2;
-
-  &:first-of-type {
-    color: $page-text-color;
-  }
 }
 
 .page {
@@ -32,6 +28,16 @@
 
   p {
     @extend %page-content-box-paragraph;
+
+    &:first-of-type {
+      color: $page-text-color;
+    }
+  }
+
+  li {
+    color: $page-secondary-text-color;
+    font-size: em(13px);
+    line-height: 2;
   }
 
   h2,

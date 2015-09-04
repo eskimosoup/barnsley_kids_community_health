@@ -1,3 +1,16 @@
 .service-layout .location p {
   line-height: 1.25;
 }
+
+.location {
+  border-bottom: 1px solid $grey;
+
+  h4 {
+    font-size: em(16px);
+    margin: em(10px, 16px) 0;
+  }
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}

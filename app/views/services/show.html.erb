@@ -20,7 +20,7 @@
         <div class="small-12 columns">
           <div class="service-banner">
             <div class="service-banner-content">
-              
+              <%= @presented_service.tagline %>
             </div>
 
             <div class="service-banner-image">
@@ -53,24 +53,20 @@
             </div>
           </div>
         <% end %>
-        <div class="medium-6 columns">
-          <div class="content-box">
-            <h3 class="styled-title">Opening Times</h3>
+        <% unless @presented_locations.blank? %>
+          <div class="small-6 columns">
+            <div class="content-box">
+              <h3 class="styled-title">Locations</h3>
+              <%= render partial: "locations/location", collection: @presented_locations, as: :presented_location %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
 
       <div class="row">
-      <% unless @presented_locations.blank? %>
-        <div class="small-6 columns">
-          <div class="content-box">
-            <h3 class="styled-title">Locations</h3>
-            <%= render partial: "locations/location", collection: @presented_locations, as: :presented_location %>
-          </div>
-        </div>
-      <% end %>
+
       <% unless @presented_faqs.blank? %>
-        <div class="small-6 columns">
+        <div class="small-12 columns">
           <div class="content-box">
             <h3 class="styled-title">Frequently Asked Questions</h3>
             <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>

@@ -4,6 +4,10 @@
 
     <%= presented_location.content %>
 
+    <% if presented_location.opening_times.present? %>
+      <h4>Opening Times</h4>
+    <% end %>
+
     <%= presented_location.opening_times %>
   </div>
 </div>
