@@ -1,8 +1,13 @@
 GIT
-  remote: git@github.com:eskimosoup/Optimadmin.git
-  revision: 99ff8691bc9a63fb958567073125672a95949551
+  remote: git@github.com:eskimosoup/optimadmin_generators.git
+  revision: 1a94de4f884223a7e2e02bdb9a01a26700f7f3ac
   specs:
-    optimadmin (0.0.2)
+    optimadmin_generators (0.3.7)
+
+PATH
+  remote: ../optimadmin
+  specs:
+    optimadmin (0.0.3)
       bcrypt
       cancancan
       carrierwave
@@ -14,12 +19,7 @@ GIT
       mini_magick
       rails
       sass-rails
-
-GIT
-  remote: git@github.com:eskimosoup/optimadmin_generators.git
-  revision: 1a94de4f884223a7e2e02bdb9a01a26700f7f3ac
-  specs:
-    optimadmin_generators (0.3.7)
+      tinymce-rails
 
 GEM
   remote: https://rubygems.org/
@@ -180,7 +180,7 @@ GEM
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    little-plugger (1.1.3)
+    little-plugger (1.1.4)
     logging (2.0.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
@@ -194,7 +194,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (2.6.1)
-    mini_magick (4.2.10)
+    mini_magick (4.3.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
@@ -314,6 +314,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    tinymce-rails (4.2.4)
+      railties (>= 3.1.1)
     twitter (5.14.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)

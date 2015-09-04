@@ -66,5 +66,6 @@ source 'https://rails-assets.org' do
 end
 
 gem 'twitter'
-gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
+gem 'optimadmin', path: '../optimadmin'
 gem 'friendly_id', '~> 5.1.0'
