@@ -7,12 +7,11 @@ class ServicePresenter < BasePresenter
   end
 
   def icon
-    #h.image_tag service.icon.thumb, width: 32, height: 32
+    h.image_tag service.icon.thumb, width: 32, height: 32
   end
 
   def banner_image
-    #h.image_tag service.image.banner, width: 624, height: 188
-    h.image_tag "http://placehold.it/624x188", width: 624, height: 188
+    h.image_tag service.image.banner, width: 624, height: 188
   end
 
   def colour
