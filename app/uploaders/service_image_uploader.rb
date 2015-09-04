@@ -1,7 +1,7 @@
 class ServiceImageUploader < Optimadmin::ImageUploader
 
   version :homepage do
-    process resize_to_fill: [150, 150]
+    process resize_to_fill: [183, 150]
   end
 
   version :banner do

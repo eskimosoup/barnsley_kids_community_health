@@ -7,7 +7,11 @@ class ServicePresenter < BasePresenter
   end
 
   def icon
-    h.image_tag service.icon.show
+    h.image_tag service.icon.url
+  end
+
+  def homepage_image
+    h.image_tag service.image.homepage, class: 'service-image', alt: name
   end
 
   def banner_image

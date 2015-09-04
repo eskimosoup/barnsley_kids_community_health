@@ -13,10 +13,20 @@ class Page < ActiveRecord::Base
   before_save :store_image, if: Proc.new{|page| page.remote_image_url.blank? }
   # before_save :store_file, if: Proc.new{|page| page.remote_file_url.blank? }
 
+  before_save :update_page_name
+
   validates :title, :content, presence: true
   validates :suggested_url, allow_blank: true, uniqueness: { message: 'is not unique, leave this blank to generate automatically' }
 
   delegate :name, to: :service, prefix: true, allow_nil: true
+
+  def update_page_name
+    if self.service.present?
+      self.name = "#{self.title} (#{self.service.name})"
+    else
+      self.name = self.title
+    end
+  end
 
   def slug_candidates
     [
