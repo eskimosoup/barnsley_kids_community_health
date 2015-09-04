@@ -7,7 +7,7 @@ class ServicePresenter < BasePresenter
   end
 
   def icon
-    h.image_tag service.icon.thumb, width: 32, height: 32
+    h.image_tag service.icon.show
   end
 
   def banner_image

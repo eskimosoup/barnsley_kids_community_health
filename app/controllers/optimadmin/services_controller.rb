@@ -2,6 +2,8 @@ module Optimadmin
   class ServicesController < Optimadmin::ApplicationController
     before_action :set_service, only: [:show, :edit, :update, :destroy]
 
+    edit_images_for Service, [[:image, { show: ['fit', 756, 200], homepage: ['fill', 624, 188] }], [:icon, { show: ['fit', 32, 32] }]]
+
     def index
       @services = Optimadmin::BaseCollectionPresenter.new(collection: Service.where('name ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::ServicePresenter)
     end
