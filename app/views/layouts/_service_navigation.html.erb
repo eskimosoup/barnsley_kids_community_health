@@ -1,7 +1,11 @@
 <div class="service-title <%= @presented_service.colour %>">
-  <%= link_to '#', class: 'toggle-class', data: { container: '.service-navigation-wrap', class: 'hide-for-small', return: 'true' } do %>
+  <%= link_to @presented_service.subdomain_link, class: 'toggle-class', data: { container: '.service-navigation-wrap', class: 'hide-for-small', return: 'true' } do %>
     <%= @presented_service.icon %>
     <%= @presented_service.name %>
+  <% end %>
+
+  <%= link_to '#', class: 'toggle-menu toggle-class show-for-small', data: { container: '.service-navigation-wrap', class: 'hide-for-small', return: 'true' } do %>
+    MENU
   <% end %>
 </div>
 

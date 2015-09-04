@@ -76,10 +76,18 @@
   border-top-right-radius: 4px;
   font-size: em(16px);
   font-weight: $primary-font-semibold;
-  padding: em(16px, 16px) em(10px, 16px);
+  padding: em(16px, 16px) em(5px, 16px);
   text-align: center;
+  line-height: 1;
+
+  @include responsive-to(small) {
+    padding-bottom: em(4px, 16px);
+  }
 
   a {
+    display: block;
+    width: 100%;
+
     &:link,
     &:visited,
     &:hover,
@@ -87,11 +95,17 @@
       color: $white;
     }
   }
+
+  .toggle-menu {
+    border: 1px dotted $white;
+    padding: em(10px) 0;
+    margin: em(5px) 0 0;
+  }
 }
 
 .service-layout .content-box {
   margin: 0 0 em(30px);
-
+  
   @include responsive-to(small) {
     margin: 0 0 em(10px);
   }
@@ -197,11 +211,16 @@
     color: $white;
     height: 188px;
     left: 0;
-    padding: em(60px) em(132px) em(60px) em(26px);
+    padding: em(45px) em(132px) em(60px) em(26px);
     position: absolute;
     top: 0;
     width: 432px;
     z-index: 2;
+
+    p {
+      margin: 0;
+      font-size: em(14px);
+    }
 
     @include responsive-to(small) {
       height: auto;
