@@ -18,7 +18,7 @@ class Page < ActiveRecord::Base
   validates :title, :content, presence: true
   validates :suggested_url, allow_blank: true, uniqueness: { message: 'is not unique, leave this blank to generate automatically' }
 
-  delegate :name, to: :service, prefix: true, allow_nil: true
+  delegate :name, :subdomain, to: :service, prefix: true, allow_nil: true
 
   def update_page_name
     if self.service.present?
