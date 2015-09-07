@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   resources :articles, only: [:index, :show]
   resources :services, only: [:index, :show]
+  resources :testimonials, only: [:index]
+  resources :frequently_asked_questions, path: "frequently-asked-questions", only: [:index]
 
   root to: "application#index"
   mount Optimadmin::Engine => "/admin"

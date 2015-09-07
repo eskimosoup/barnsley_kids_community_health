@@ -3,6 +3,7 @@ FactoryGirl.define do
     question "Question"
     answer "Answer"
     display true
+    service_home true
   end
 
 end

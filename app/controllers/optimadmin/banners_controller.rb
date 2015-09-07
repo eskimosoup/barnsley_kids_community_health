@@ -46,7 +46,7 @@ module Optimadmin
     end
 
     def banner_params
-      params.require(:banner).permit(:name, :image, :image_cache, :remote_image_url, :content, :position, :display)
+      params.require(:banner).permit(:name, :image, :image_cache, :remote_image_url, :content, :position, :display, :link)
     end
   end
 end
