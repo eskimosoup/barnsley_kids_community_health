@@ -20,6 +20,8 @@ class MenuItemDestinationEvaluator
         menu_resource.name
       when Page
         page_route
+      when Service
+        h.request.protocol + menu_resource.subdomain + "." + [h.request.domain, h.request.port].compact.join(":")
       else
         menu_resource
     end

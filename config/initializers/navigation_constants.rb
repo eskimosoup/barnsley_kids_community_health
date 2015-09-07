@@ -3,6 +3,7 @@ paediatric_therapy paediatric_audiology camhs )
 
 NavigationLinks = {
   'Page' => 'Page',
+  'Service' => 'Service',
   'Module Page' => 'Optimadmin::ModulePage',
   'External Link' => 'Optimadmin::ExternalLink'
 }
