@@ -3,6 +3,10 @@
   margin: em(22px) 0 em(20px);
   position: relative;
 
+  a {
+    color: $white;
+  }
+
   @include responsive-to(small) {
     position: static;
     height: auto;

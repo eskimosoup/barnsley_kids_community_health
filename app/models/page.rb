@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
   mount_uploader :image, PageUploader
 
   scope :displayed, ->{ where(display: true) }
-  scope :for_service, ->(service) { where("service_id = ? OR service_id = NULL", service.id) if service.present? }
+  scope :for_service, ->(service) { where("service_id = ? OR service_id IS NULL", service.id) if service.present? }
 
   before_save :store_image, if: Proc.new{|page| page.remote_image_url.blank? }
   # before_save :store_file, if: Proc.new{|page| page.remote_file_url.blank? }
@@ -18,7 +18,7 @@ class Page < ActiveRecord::Base
   validates :title, :content, presence: true
   validates :suggested_url, allow_blank: true, uniqueness: { message: 'is not unique, leave this blank to generate automatically' }
 
-  delegate :name, to: :service, prefix: true, allow_nil: true
+  delegate :name, :subdomain, to: :service, prefix: true, allow_nil: true
 
   def update_page_name
     if self.service.present?

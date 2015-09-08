@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904103843) do
+ActiveRecord::Schema.define(version: 20150907110554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150904103843) do
     t.text     "content"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "link"
   end
 
   create_table "contact_details", force: :cascade do |t|
@@ -55,11 +56,12 @@ ActiveRecord::Schema.define(version: 20150904103843) do
   add_index "contact_details", ["service_id"], name: "index_contact_details_on_service_id", using: :btree
 
   create_table "frequently_asked_questions", force: :cascade do |t|
-    t.string   "question",                  null: false
-    t.text     "answer",                    null: false
-    t.boolean  "display",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "question",                    null: false
+    t.text     "answer",                      null: false
+    t.boolean  "display",      default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "service_home", default: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -235,12 +237,13 @@ ActiveRecord::Schema.define(version: 20150904103843) do
   add_index "services", ["slug"], name: "index_services_on_slug", using: :btree
 
   create_table "testimonials", force: :cascade do |t|
-    t.string   "name",                      null: false
+    t.string   "name",                        null: false
     t.string   "author"
-    t.text     "content",                   null: false
-    t.boolean  "display",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "content",                     null: false
+    t.boolean  "display",      default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "service_home", default: true
   end
 
   add_foreign_key "contact_details", "services"

@@ -43,6 +43,11 @@
 
     <%= field_set_tag nil, id: 'tabs-3' do %>
       <div class="field">
+        <%= f.label :link %><br/>
+        <%= f.url_field :link %>
+      </div>
+
+      <div class="field">
         <%= f.label :display %><br>
         <%= f.check_box :display %>
       </div>
