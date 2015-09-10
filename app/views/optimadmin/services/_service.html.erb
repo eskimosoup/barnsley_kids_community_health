@@ -1,10 +1,10 @@
 <div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= service_presenter.id %>">
   <div class="large-1 small-2 columns" data-equalizer-watch="module-list">
-    <%= service_presenter.detail_toggle_link %>
+    <span class="drag-helper"></span>
   </div>
 
   <div class="large-5 small-6 columns" data-equalizer-watch="module-list">
-    <%= service_presenter.name %>
+    <%= service_presenter.toggle_title %>
   </div>
 
   <div class="large-2 hide-for-medium-down columns" data-equalizer-watch="module-list">
