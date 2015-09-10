@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def set_service
     @service = Service.displayed.find_by(subdomain: request.subdomain)
-    @service = Service.find(1)
+    #@service = Service.find(1)
     # this has to be here to be global
     @presented_service = ServicePresenter.new(object: @service, view_template: view_context) if @service
   end
