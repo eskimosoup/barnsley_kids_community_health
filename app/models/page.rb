@@ -53,6 +53,14 @@ class Page < ActiveRecord::Base
     Optimadmin::Image.store_image(self, image) if image.present? && image_changed?
   end
 
+  def self.service_filter(service_id)
+    if service_id.blank?
+      where("true")
+    else
+      where(service_id: service_id)
+    end
+  end
+
   # def store_file
   #   Optimadmin::Document.store_file(self, file) if file.present? && file_changed?
   # end
