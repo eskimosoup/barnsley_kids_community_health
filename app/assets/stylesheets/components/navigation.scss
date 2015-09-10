@@ -76,9 +76,11 @@
   }
 
   a {
+    border-bottom: 1px solid lighten($nav-blue, 15%);
     background: none;
     font-size: em(14px, 16px);
     padding: em(5px);
+    text-transform: none;
     width: 100%;
   }
 

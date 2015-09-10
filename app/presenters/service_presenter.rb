@@ -19,7 +19,7 @@ class ServicePresenter < BasePresenter
   end
 
   def banner_image
-    h.image_tag service.image.banner, width: 624, height: 188
+    h.image_tag service.image.banner, width: 424, height: 188
   end
 
   def colour
