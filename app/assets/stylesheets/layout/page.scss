@@ -48,4 +48,14 @@
     color: $nav-dark-blue;
     font-weight: $primary-font-semibold;
   }
+
+  h2 {
+    font-size: em(14px);
+  }
+  h3 {
+    font-size: em(12px);
+  }
+  h4, h5, h6 {
+    font-size: em(10px);
+  }
 }
