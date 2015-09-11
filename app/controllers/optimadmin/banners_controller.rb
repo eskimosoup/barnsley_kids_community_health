@@ -2,6 +2,8 @@ module Optimadmin
   class BannersController < Optimadmin::ApplicationController
     before_action :set_banner, only: [:show, :edit, :update, :destroy]
 
+    edit_images_for Banner, [[:image, { homepage: ['fit', 560, 276] }]]
+
     def index
       @banners = Optimadmin::BaseCollectionPresenter.new(collection: Banner.order(position: :asc), view_template: view_context, presenter: Optimadmin::BannerPresenter)
     end
