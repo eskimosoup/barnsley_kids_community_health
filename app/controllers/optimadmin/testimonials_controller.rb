@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
     def index
-      @testimonials = Optimadmin::BaseCollectionPresenter.new(collection: Testimonial.where('author ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15),
+      @testimonials = Optimadmin::BaseCollectionPresenter.new(collection: Testimonial.service_filter(params[:service_id]).where('author ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15),
                                                               view_template: view_context, presenter: Optimadmin::TestimonialPresenter)
     end
 

@@ -5,7 +5,7 @@ module Optimadmin
     edit_images_for Page, [[:image, { show: ['fit', 756, 200] }]]
 
     def index
-      @pages = Optimadmin::BaseCollectionPresenter.new(collection: Page.service_filter(params[:service_id]).where('title ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::PagePresenter)
+      @pages = Optimadmin::BaseCollectionPresenter.new(collection: Page.service_filter(params[:service_id]).where('title ILIKE ?', "#{params[:search]}%").order(:service_id).page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::PagePresenter)
     end
 
     def show

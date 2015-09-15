@@ -11,5 +11,9 @@ module Optimadmin
     def optimadmin_summary
       h.raw location.content
     end
+
+    def services
+      h.content_tag :div, location.services.pluck(:name).join(', '), style: 'font-size:12px;line-height:1.2;' if location.services.present?
+    end
   end
 end
