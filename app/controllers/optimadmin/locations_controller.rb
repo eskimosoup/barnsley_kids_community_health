@@ -3,7 +3,7 @@ module Optimadmin
     before_action :set_location, only: [:show, :edit, :update, :destroy]
 
     def index
-      @locations = Optimadmin::BaseCollectionPresenter.new(collection: Location.where('name ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::LocationPresenter)
+      @locations = Optimadmin::BaseCollectionPresenter.new(collection: Location.service_filter(params[:service_id]).where('name ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::LocationPresenter)
     end
 
     def show

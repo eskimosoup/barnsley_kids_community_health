@@ -9,6 +9,14 @@ class ContactDetail < ActiveRecord::Base
     end
   end
 
+  def self.service_filter(service_id)
+    if service_id.blank?
+      where("true")
+    else
+      where(service_id: service_id)
+    end
+  end
+
   delegate :name, to: :service, prefix: true, allow_nil: true
 
   validates :name, presence: true, uniqueness: true

@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
   mount_uploader :image, PageUploader
 
   scope :displayed, ->{ where(display: true) }
-  scope :for_service, ->(service) { where("service_id = ? OR service_id IS NULL", service.id) if service.present? }
+  scope :for_service, ->(service) { where("service_id = ?", service.id) if service.present? }
 
   before_save :store_image, if: Proc.new{|page| page.remote_image_url.blank? }
   # before_save :store_file, if: Proc.new{|page| page.remote_file_url.blank? }
