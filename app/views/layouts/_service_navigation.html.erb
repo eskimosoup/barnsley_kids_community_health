@@ -11,6 +11,6 @@
 
 <nav class="hide-for-small service-navigation-wrap <%= @presented_service.colour %>">
   <ul class="top-level navigation" id="service-navigation">
-    <%= nested_menu_items(menu_items: @service_menu.menu_items) %>
+    <%= nested_menu_items(menu_items: @service_menu.menu_items, menu_name: @service_menu.name) %>
   </ul>
 </nav>

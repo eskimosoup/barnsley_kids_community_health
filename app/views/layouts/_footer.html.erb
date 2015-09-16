@@ -7,7 +7,7 @@
     <div class="medium-8 columns">
       <nav class="footer-navigation">
         <ul>
-          <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
+          <%= nested_menu_items(menu_items: @header_menu.menu_items, menu_name: @header_menu.name) %>
         </ul>
       </nav>
 
