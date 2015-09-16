@@ -1,11 +1,12 @@
 class MenuItemDestinationEvaluator
 
-  attr_reader :menu_resource
+  attr_reader :menu_resource, :menu_name
 
-  def initialize(view_template:, menu_resource:, admin: false)
+  def initialize(view_template:, menu_resource:, admin: false, menu_name:)
     @view_template = view_template
     @menu_resource = menu_resource
     @admin = admin
+    @menu_name = menu_name
   end
 
   def admin?
@@ -21,9 +22,9 @@ class MenuItemDestinationEvaluator
       when Page
         page_route
       when Service
-        h.request.protocol + menu_resource.subdomain + "." + [h.request.domain, h.request.port].compact.join(":")
+        base_url
+        #h.request.protocol + menu_resource.subdomain + "." + [h.request.domain, h.request.port].compact.join(":")
       else
-        menu_resource
     end
   end
 
@@ -35,15 +36,15 @@ class MenuItemDestinationEvaluator
 
   def module_page_route
     if admin?
-      h.main_app.public_send(menu_resource.route) if h.main_app.respond_to?(menu_resource.route)
+      base_url + h.main_app.public_send(menu_resource.route) if h.main_app.respond_to?(menu_resource.route)
     else
-      h.public_send(menu_resource.route) if h.respond_to?(menu_resource.route)
+      base_url + h.public_send(menu_resource.route) if h.respond_to?(menu_resource.route)
     end
   end
 
   def page_route
     if menu_resource.service.nil? || menu_resource.service_subdomain == h.request.subdomain
-      menu_resource
+      base_url + h.page_path(menu_resource)
     else
       nil
     end
@@ -51,6 +52,30 @@ class MenuItemDestinationEvaluator
 
   def h
     @view_template
+  end
+
+  def base_url
+    [protocol, subdomain, ".", domain, port].compact.join
+  end
+
+  def protocol
+    h.request.protocol
+  end
+
+  def subdomain
+    if menu_resource.instance_of?(Service) || menu_name != "header"
+      menu_resource.subdomain
+    else
+      "www"
+    end
+  end
+
+  def domain
+    h.request.domain
+  end
+
+  def port
+    ":#{ h.request.port }" if h.request.port
   end
 
 end

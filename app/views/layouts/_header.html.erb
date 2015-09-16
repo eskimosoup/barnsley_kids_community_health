@@ -10,7 +10,7 @@
     <div class="row">
       <div class="small-12 columns">
         <ul class="navigation" id="header-navigation">
-          <%= nested_menu_items(menu_items: @header_menu.menu_items) %>
+          <%= nested_menu_items(menu_items: @header_menu.menu_items, menu_name: @header_menu.name) %>
         </ul>
       </div>
     </div>

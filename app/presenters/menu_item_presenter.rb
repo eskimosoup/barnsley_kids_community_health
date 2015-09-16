@@ -1,9 +1,10 @@
 class MenuItemPresenter < BasePresenter
   presents :menu_item
-  attr_reader :link, :menu_resource
+  attr_reader :link, :menu_resource, :menu_name
 
-  def initialize(object:, view_template:, descendants_hash: nil)
+  def initialize(object:, view_template:, descendants_hash: nil, menu_name:)
     super(object: object, view_template: view_template)
+    @menu_name = menu_name
     @link = menu_item.link
     @menu_resource = @link.menu_resource
     @descendants_hash = descendants_hash
@@ -47,7 +48,8 @@ class MenuItemPresenter < BasePresenter
   end
 
   def descendants_destinations
-    descendants_array.map{|x| MenuItemDestinationEvaluator.new(view_template: h, menu_resource: x.link.menu_resource) }
+    descendants_array.map{|x| MenuItemDestinationEvaluator.new(view_template: h, menu_resource: x.link.menu_resource,
+                                                               menu_name: menu_name) }
   end
 
   def active_descendants?
@@ -67,6 +69,7 @@ class MenuItemPresenter < BasePresenter
   end
 
   def destination_evaluator
-    @destination_evaluator ||= MenuItemDestinationEvaluator.new(view_template: h, menu_resource: menu_resource)
+    @destination_evaluator ||= MenuItemDestinationEvaluator.new(view_template: h, menu_resource: menu_resource,
+                                                                menu_name: menu_name)
   end
 end
