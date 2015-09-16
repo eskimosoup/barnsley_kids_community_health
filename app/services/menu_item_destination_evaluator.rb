@@ -63,7 +63,7 @@ class MenuItemDestinationEvaluator
   end
 
   def subdomain
-    if menu_resource.instance_of?(Service) ||
+    if menu_resource.instance_of?(Service)
       menu_resource.subdomain
     elsif menu_name != "header"
       h.request.subdomain
