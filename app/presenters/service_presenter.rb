@@ -6,10 +6,6 @@ class ServicePresenter < BasePresenter
     h.link_to name, subdomain_link
   end
 
-  def tagline
-    h.simple_format service.tagline
-  end
-
   def icon
     h.image_tag service.icon.url, class: 'service-icon-image'
   end

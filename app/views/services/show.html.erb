@@ -20,7 +20,7 @@
         <div class="small-12 columns">
           <div class="service-banner">
             <div class="service-banner-content">
-              <%= @presented_service.tagline %>
+              <%= render partial: "testimonials/testimonial", locals: { presented_testimonial: @presented_testimonial } %>
             </div>
 
             <div class="service-banner-image">
@@ -34,25 +34,14 @@
           <div class="content-box">
             <div class="<%= @presented_service.heading_classes %>">
               <h1><%= @presented_service.name %></h1>
-            </div>
 
-            <%= @presented_service.overview %>
+              <%= @presented_service.overview %>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <% unless @presented_testimonials.blank? %>
-          <div class="medium-6 columns">
-            <div class="content-box">
-              <h3 class="styled-title">Testimonials</h3>
-
-              <div class="testimonials">
-                <%= render partial: "testimonials/testimonial", collection: @presented_testimonials, as: :presented_testimonial %>
-              </div>
-            </div>
-          </div>
-        <% end %>
         <% unless @presented_locations.blank? %>
           <div class="small-6 columns">
             <div class="content-box">
@@ -61,18 +50,15 @@
             </div>
           </div>
         <% end %>
-      </div>
 
-      <div class="row">
-
-      <% unless @presented_faqs.blank? %>
-        <div class="small-12 columns">
-          <div class="content-box">
-            <h3 class="styled-title">Frequently Asked Questions</h3>
-            <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
+        <% unless @presented_faqs.blank? %>
+          <div class="small-6 columns">
+            <div class="content-box">
+              <h3 class="styled-title">Frequently Asked Questions</h3>
+              <%= render partial: "frequently_asked_questions/frequently_asked_question", collection: @presented_faqs, as: :presented_faq %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -105,7 +105,7 @@
 
 .service-layout .content-box {
   margin: 0 0 em(30px);
-  
+
   @include responsive-to(small) {
     margin: 0 0 em(10px);
   }
@@ -211,7 +211,7 @@
     color: $white;
     height: 188px;
     left: 0;
-    padding: em(45px) em(132px) em(60px) em(26px);
+    padding: em(25px) em(132px) em(60px) em(20px);
     position: absolute;
     top: 0;
     width: 432px;
@@ -219,7 +219,7 @@
 
     p {
       margin: 0;
-      font-size: em(14px);
+      font-size: em(12px);
     }
 
     @include responsive-to(small) {
