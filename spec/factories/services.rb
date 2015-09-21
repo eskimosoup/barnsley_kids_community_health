@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:name) {|n| "Service #{ n }"}
     overview "Service overview"
     colour { Service::COLOURS[Random.rand(Service::COLOURS.size)] }
-    sequence(:menu_name) {|n| Service::MENU_NAMES[n] }
+    sequence(:menu_name) {|n| Service::MENU_NAMES[n % Service::MENU_NAMES.size] }
     sequence(:subdomain) {|n| "blah#{ n }" }
     display true
     trait :with_image do

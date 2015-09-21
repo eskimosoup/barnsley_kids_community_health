@@ -11,6 +11,30 @@ Rails.application.routes.draw do
   mount Optimadmin::Engine => "/admin"
 end
 Optimadmin::Engine.routes.draw do
+  resources :pathway_jigsaw_pieces, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :pathway_rows, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
+  resources :pathway_sections, except: [:show] do
+    collection do
+      post 'order'
+    end
+    member do
+      get 'toggle'
+    end
+  end
   resources :locations, except: [:show] do
     collection do
       post 'order'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921104214) do
+ActiveRecord::Schema.define(version: 20150921123505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,41 @@ ActiveRecord::Schema.define(version: 20150921104214) do
 
   add_index "pages", ["service_id"], name: "index_pages_on_service_id", using: :btree
 
+  create_table "pathway_jigsaw_pieces", force: :cascade do |t|
+    t.integer  "pathway_section_id"
+    t.string   "name",                              null: false
+    t.integer  "position",           default: 0
+    t.string   "colour",                            null: false
+    t.boolean  "display",            default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "pathway_jigsaw_pieces", ["pathway_section_id"], name: "index_pathway_jigsaw_pieces_on_pathway_section_id", using: :btree
+
+  create_table "pathway_rows", force: :cascade do |t|
+    t.integer  "pathway_section_id"
+    t.string   "name",                              null: false
+    t.integer  "position",           default: 0
+    t.string   "colour",                            null: false
+    t.text     "content"
+    t.boolean  "display",            default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "pathway_rows", ["pathway_section_id"], name: "index_pathway_rows_on_pathway_section_id", using: :btree
+
+  create_table "pathway_sections", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position",                    default: 0
+    t.integer  "pathway_rows_count",          default: 0
+    t.integer  "pathway_jigsaw_pieces_count", default: 0
+    t.boolean  "display",                     default: true
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
   create_table "service_frequently_asked_questions", force: :cascade do |t|
     t.integer  "service_id"
     t.integer  "frequently_asked_question_id"
@@ -229,6 +264,8 @@ ActiveRecord::Schema.define(version: 20150921104214) do
 
   add_foreign_key "contact_details", "services"
   add_foreign_key "pages", "services"
+  add_foreign_key "pathway_jigsaw_pieces", "pathway_sections", on_delete: :cascade
+  add_foreign_key "pathway_rows", "pathway_sections", on_delete: :cascade
   add_foreign_key "service_frequently_asked_questions", "frequently_asked_questions"
   add_foreign_key "service_frequently_asked_questions", "services"
   add_foreign_key "service_testimonials", "services"

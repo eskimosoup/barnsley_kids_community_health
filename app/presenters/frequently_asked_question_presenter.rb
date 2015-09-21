@@ -1,9 +1,9 @@
 class FrequentlyAskedQuestionPresenter < BasePresenter
   presents :frequently_asked_question
-  #delegate :question, to: :frequently_asked_question
 
   def question
-    h.link_to frequently_asked_question.question, '#', class: 'toggle-class', data: { container: ".faq-#{frequently_asked_question.id}", class: 'hide', return: 'false'  }
+    h.link_to frequently_asked_question.question, '#', class: 'toggle-class',
+              data: { container: ".faq-#{frequently_asked_question.id}", class: 'hide', return: 'false'  }
   end
 
   def answer
