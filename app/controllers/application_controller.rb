@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
       @presented_testimonial = TestimonialPresenter.new(object: @service.testimonials.displayed.service_home.last, view_template: view_context)
       @presented_faqs = BaseCollectionPresenter.new(collection: @service.frequently_asked_questions.displayed.service_home, view_template: view_context,
                                                     presenter: FrequentlyAskedQuestionPresenter)
-      @presented_locations = BaseCollectionPresenter.new(collection: @service.locations.displayed, view_template: view_context, presenter: LocationPresenter)
       render template: "services/show"
     else
       @presented_banners = BaseCollectionPresenter.new(collection: Banner.displayed.order(position: :asc), view_template: view_context, presenter: BannerPresenter)

@@ -46,7 +46,7 @@ module Optimadmin
     end
 
     def contact_detail_params
-      params.require(:contact_detail).permit(:service_id, :name, :address, :postcode, :phone_number, :email)
+      params.require(:contact_detail).permit(:service_id, :name, :address, :postcode, :phone_number, :email, :opening_hours)
     end
   end
 end

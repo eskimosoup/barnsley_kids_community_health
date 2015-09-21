@@ -11,7 +11,7 @@ class ContactDetail < ActiveRecord::Base
 
   def self.service_filter(service_id)
     if service_id.blank?
-      where("true")
+      all
     else
       where(service_id: service_id)
     end
