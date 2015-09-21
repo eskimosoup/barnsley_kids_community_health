@@ -9,12 +9,20 @@ RSpec.describe ContactDetailPresenter, type: :presenter do
       expect(contact_detail_presenter.name).to eq(contact_detail.name)
     end
 
-    it "should return the phone_number" do
-      expect(contact_detail_presenter.phone_number).to eq(contact_detail.phone_number)
+    it "should return the phone_number using simple format" do
+      expect(contact_detail_presenter.phone_number).to eq(simple_format(contact_detail.phone_number))
     end
 
     it "should return the postcode" do
       expect(contact_detail_presenter.postcode).to eq(contact_detail.postcode)
+    end
+
+    it "should escape the address" do
+      expect(contact_detail_presenter.address).to eq(raw(contact_detail.address))
+    end
+
+    it "should escape the opening hours" do
+      expect(contact_detail_presenter.opening_hours).to eq(raw(contact_detail.opening_hours))
     end
   end
 end
