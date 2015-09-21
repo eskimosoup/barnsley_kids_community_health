@@ -78,15 +78,6 @@ ActiveRecord::Schema.define(version: 20150921104214) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name",                         null: false
-    t.text     "content"
-    t.text     "opening_times"
-    t.boolean  "display",       default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
   create_table "optimadmin_administrators", force: :cascade do |t|
     t.string   "username",               null: false
     t.string   "email",                  null: false
@@ -198,16 +189,6 @@ ActiveRecord::Schema.define(version: 20150921104214) do
   add_index "service_frequently_asked_questions", ["frequently_asked_question_id"], name: "faq_id_service_faq", using: :btree
   add_index "service_frequently_asked_questions", ["service_id"], name: "service_id_service_faq", using: :btree
 
-  create_table "service_locations", force: :cascade do |t|
-    t.integer  "service_id"
-    t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "service_locations", ["location_id"], name: "index_service_locations_on_location_id", using: :btree
-  add_index "service_locations", ["service_id"], name: "index_service_locations_on_service_id", using: :btree
-
   create_table "service_testimonials", force: :cascade do |t|
     t.integer  "service_id"
     t.integer  "testimonial_id"
@@ -250,8 +231,6 @@ ActiveRecord::Schema.define(version: 20150921104214) do
   add_foreign_key "pages", "services"
   add_foreign_key "service_frequently_asked_questions", "frequently_asked_questions"
   add_foreign_key "service_frequently_asked_questions", "services"
-  add_foreign_key "service_locations", "locations"
-  add_foreign_key "service_locations", "services"
   add_foreign_key "service_testimonials", "services"
   add_foreign_key "service_testimonials", "testimonials"
 end
