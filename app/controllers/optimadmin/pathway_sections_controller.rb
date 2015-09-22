@@ -3,7 +3,8 @@ module Optimadmin
     before_action :set_pathway_section, only: [:show, :edit, :update, :destroy]
 
     def index
-      @pathway_sections = Optimadmin::BaseCollectionPresenter.new(collection: PathwaySection.where('title ILIKE ?', "#{params[:search]}%").page(params[:page]).per(params[:per_page] || 15), view_template: view_context, presenter: Optimadmin::PathwaySectionPresenter)
+      @pathway_sections = Optimadmin::BaseCollectionPresenter.new(collection: PathwaySection.ordered,
+                                  view_template: view_context, presenter: Optimadmin::PathwaySectionPresenter)
     end
 
     def show

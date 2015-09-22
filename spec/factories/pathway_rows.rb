@@ -3,7 +3,7 @@ FactoryGirl.define do
     pathway_section
     position 1
     sequence(:name) {|n| "Row #{ n }" }
-    colour "pink"
+    colour { PathwayRow::COLOURS.first }
     content "My content"
     display true
   end

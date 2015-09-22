@@ -17,5 +17,13 @@ RSpec.describe PathwayRowPresenter, type: :presenter do
       expect(pathway_row_presenter.colour).to eq(pathway_row.colour)
     end
 
+    it "returns lightbox div id" do
+      expect(pathway_row_presenter.lightbox_id).to eq("pathway-row-#{ pathway_row.id }-content")
+    end
+
+    it "returns the lightbox link" do
+      expect(pathway_row_presenter.lightbox_link).to eq(link_to pathway_row.name, "#pathway-row-#{ pathway_row.id }-content",
+                                                                class: [pathway_row.colour, "pathway-row", "fancybox"].compact.join(" "), rel: "pathway")
+    end
   end
 end

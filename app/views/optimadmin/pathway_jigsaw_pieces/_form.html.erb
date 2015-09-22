@@ -1,59 +1,29 @@
-<%= form_for(pathway_jigsaw_piece) do |f| %>
-<% if pathway_jigsaw_piece.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(pathway_jigsaw_piece.errors.count, "error") %> prohibited this pathway_jigsaw_piece from being saved:</h2>
+<%= form_for([@pathway_section, @pathway_jigsaw_piece]) do |f| %>
+  <% if @pathway_jigsaw_piece.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pathway_jigsaw_piece.errors.count, "error") %> prohibited this pathway jigsaw piece from being saved:</h2>
 
-    <ul>
-      <% pathway_jigsaw_piece.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-  
-
-  <div class="tabs prevent-flash">
-    <ul class="tab-list">
-      <li><a href="#tabs-1">Content</a></li>
-      <li><a href="#tabs-2">Media</a></li>
-      <li><a href="#tabs-3">Settings</a></li>
-      <li>
-        <%= link_to '#', class: 'destroy-tabs right', data: { class: 'tabs' } do %>
-          <%= octicon('chevron-down') %>
+      <ul>
+        <% @pathway_jigsaw_piece.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
         <% end %>
-      </li>
-    </ul>
+      </ul>
+    </div>
+  <% end %>
 
-    <%= field_set_tag nil, id: 'tabs-1' do %>
-            <div class="field">
-        <%= f.label :pathway_section_id %><br>
-        <%= f.text_field :pathway_section_id %>
-      </div>
-            <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-      </div>
-            <div class="field">
-        <%= f.label :position %><br>
-        <%= f.number_field :position %>
-      </div>
-            <div class="field">
-        <%= f.label :colour %><br>
-        <%= f.text_field :colour %>
-      </div>
-          <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
 
-    <%= field_set_tag nil, id: 'tabs-2' do %>
-      
-          <% end %>
+  <div class="field">
+    <%= f.label :colour %><br>
+    <%= f.select :colour, PathwayJigsawPiece::COLOURS %>
+  </div>
 
-    <%= field_set_tag nil, id: 'tabs-3' do %>
-            <div class="field">
-        <%= f.label :display %><br>
-        <%= f.check_box :display %>
-      </div>
-          <% end %>
+  <div class="field">
+    <%= f.label :display %><br>
+    <%= f.check_box :display %>
   </div>
 
   <div class="actions">

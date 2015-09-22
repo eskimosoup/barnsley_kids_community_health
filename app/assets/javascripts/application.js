@@ -15,14 +15,15 @@
 //= require_tree ./vendor/foundation/libraries
 //= require vendor/foundation/foundation.js
 //= require vendor/foundation/foundation.equalizer.js
-//= require vendor/foundation/foundation.reveal.js
 //= require components/toggle_class.js
 //= require vendor/jquery-ui
 //= require vendor/jquery.doubletaptogo
 //= require slick.js.js
+//= require fancybox/source/jquery.fancybox.pack.js
 // require_tree .
 $(document).foundation();
 
 $(function() {
   $('.navigation').doubleTapToGo();
+  $(".fancybox").fancybox();
 });

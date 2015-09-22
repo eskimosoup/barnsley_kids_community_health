@@ -1,6 +1,7 @@
 /*
  *= require slick.js/slick.scss
  *= require slick.js/slick-theme.scss
+ *= require fancybox/source/jquery.fancybox.scss
  */
 
 @import 'vendor/foundation',
@@ -23,4 +24,5 @@
 'components/articles',
 'components/banners',
 'components/testimonials',
-'components/services';
+'components/services',
+'components/pages';

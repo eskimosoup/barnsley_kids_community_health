@@ -1,7 +1,7 @@
 <%= render 'optimadmin/shared/header/main_title', title: 'New Pathway Row' %>
 
 <div class="main-content">
-  <%= render 'optimadmin/shared/module/form/back', path: pathway_rows_path, title: 'Pathway Row' %>
+  <%= render 'optimadmin/shared/module/form/back', path: pathway_section_pathway_rows_path(@pathway_section), title: 'Pathway Row' %>
 
-  <%= render 'form', pathway_row: @pathway_row %>
+  <%= render 'form' %>
 </div>

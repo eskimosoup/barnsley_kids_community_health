@@ -45,6 +45,9 @@
         <% if can? :manage, ContactDetail %>
           <li><%= link_to 'Contact Details', contact_details_path %></li>
         <% end %>
+        <% if can? :manage, PathwaySection %>
+          <li><%= link_to 'Pathway Sections', pathway_sections_path %></li>
+        <% end %>
       </ul>
 
       <div class="content-category-type">
