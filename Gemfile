@@ -64,6 +64,7 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
   gem 'rails-assets-fancybox'
+  gem 'rails-assets-matchHeight'
 end
 
 gem 'twitter'
