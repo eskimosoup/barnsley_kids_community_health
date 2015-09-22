@@ -1,0 +1,28 @@
+// Pathway Sections, Rows and Jigsaw Pieces
+
+a.pathway-row {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 2px solid $white;
+  color: $white;
+  text-decoration: none;
+
+  &.blue {
+    background-color: $service-light-blue;
+  }
+
+  &.pink {
+    background-color: $service-pink;
+  }
+
+}
+
+.pathway-jigsaw-piece {
+  text-align: center;
+}
+
+.pathway-row-content {
+  display: none;
+  max-width: 600px;
+}

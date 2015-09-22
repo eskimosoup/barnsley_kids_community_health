@@ -19,9 +19,11 @@
 //= require vendor/jquery-ui
 //= require vendor/jquery.doubletaptogo
 //= require slick.js.js
+//= require fancybox/source/jquery.fancybox.pack.js
 // require_tree .
 $(document).foundation();
 
 $(function() {
   $('.navigation').doubleTapToGo();
+  $(".fancybox").fancybox();
 });

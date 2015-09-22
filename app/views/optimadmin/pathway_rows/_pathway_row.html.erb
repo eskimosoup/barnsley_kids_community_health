@@ -1,0 +1,22 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= pathway_row_presenter.id %>">
+  <div class="large-6 small-7 columns" data-equalizer-watch="module-list">
+    <%= pathway_row_presenter.name %>
+  </div>
+
+  <div class="small-3 columns" data-equalizer-watch="module-list">
+    <%= pathway_row_presenter.colour %>
+  </div>
+
+  <div class="small-1 columns" data-equalizer-watch="module-list">
+    <%= pathway_row_presenter.toggle_link %>
+  </div>
+
+  <div class="small-1 columns" data-equalizer-watch="module-list">
+    <%= pathway_row_presenter.edit_link %>
+  </div>
+
+  <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
+    <%= pathway_row_presenter.delete_link %>
+  </div>
+
+</div>

@@ -1,0 +1,40 @@
+<section class="separated-section page lightest-grey-background">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="content-box">
+        <h1><%= @presented_page.title %></h1>
+
+        <div class="content-wrap">
+          <h2>Universal Healthy Child Pathway 0-19 Years</h2>
+          <% @presented_pathway_sections.each do |pathway_section_presenter| %>
+            <div class="row">
+              <div class="small-12 medium-5 columns">
+                <% pathway_section_presenter.presented_pathway_rows.each do |pathway_row_presenter| %>
+                  <%= pathway_row_presenter.lightbox_link %>
+                <% end %>
+              </div>
+              <div class="show-for-medium-up medium-7 columns">
+                <div class="row">
+                  <% pathway_section_presenter.presented_pathway_jigsaw_pieces.each do |pathway_jigsaw_piece_presenter| %>
+                    <div class="<%= pathway_jigsaw_piece_presenter.classes %>">
+                      <%= pathway_jigsaw_piece_presenter.name %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <% pathway_section_presenter.presented_pathway_rows.each do |pathway_row_presenter| %>
+              <div id="<%= pathway_row_presenter.lightbox_id %>" class="pathway-row-content">
+                <h2><%= pathway_row_presenter.name %></h2>
+                <%= pathway_row_presenter.content %>
+              </div>
+            <% end %>
+          <% end %>
+          <%= @presented_page.image %>
+
+          <%= @presented_page.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

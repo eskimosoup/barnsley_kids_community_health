@@ -1,0 +1,21 @@
+<%= render 'optimadmin/shared/header/main_title', title: 'Manage Pathway Rows' %>
+
+<div class="main-content">
+  <div class="row module-header collapse">
+    <%= render 'optimadmin/shared/module/form/back', path: pathway_sections_path, title: 'Pathway Sections' %>
+    <%= render 'optimadmin/shared/module/index/new_item', title: 'Pathway Row', object: PathwayRow, path: new_pathway_section_pathway_row_path(@pathway_section) %>
+    <%= render 'optimadmin/shared/module/index/recycle_bin', items: @pathway_rows.size, path: root_url %>
+  </div>
+
+  <div class="row collapse module-list-index header">
+    <%= list_item('large-6 small-7') { 'Name' } %>
+    <%= list_item('small-3') { 'Colour' } %>
+    <%= list_item { 'Display' } %>
+    <%= list_item { 'Edit' } %>
+
+    <%= list_item('large-1 hide-for-medium-down text-center last') { 'Delete' } %>
+  </div>
+
+  <%= render partial: 'pathway_row', collection: @pathway_rows, as: :pathway_row_presenter %>
+
+</div>

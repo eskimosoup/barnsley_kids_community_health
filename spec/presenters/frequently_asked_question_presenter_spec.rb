@@ -6,11 +6,15 @@ RSpec.describe FrequentlyAskedQuestionPresenter, type: :presenter do
 
   describe "standard frequently_asked_question" do
     it "returns question" do
-      expect(frequently_asked_question_presenter.question).to eq(frequently_asked_question.question)
+      content = link_to frequently_asked_question.question, '#', class: 'toggle-class',
+          data: { container: ".faq-#{frequently_asked_question.id}", class: 'hide', return: 'false'  }
+      expect(frequently_asked_question_presenter.question).to eq(content)
     end
 
     it "correctly escapes html on answer" do
-      content = raw(frequently_asked_question.answer)
+      content = content_tag :div, class: "faq-#{frequently_asked_question.id} hide" do
+        raw frequently_asked_question.answer
+      end
       expect(frequently_asked_question_presenter.answer).to eq(content)
     end
   end

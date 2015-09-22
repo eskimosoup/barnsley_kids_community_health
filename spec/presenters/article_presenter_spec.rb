@@ -14,14 +14,14 @@ RSpec.describe ArticlePresenter, type: :presenter do
     end
 
     it "formats date to long by default" do
-      date = view.content_tag :span, class: 'date' do
+      date = view.content_tag :div, class: 'article-date' do
         l article.date, format: :long
       end
       expect(article_presenter.date).to eq(date)
     end
 
     it "format date to set format" do
-      date = view.content_tag :span, class: 'date' do
+      date = view.content_tag :div, class: 'article-date' do
         l article.date, format: :short
       end
       expect(article_presenter.date(:short)).to eq(date)
@@ -69,30 +69,33 @@ RSpec.describe ArticlePresenter, type: :presenter do
     subject(:article_presenter) { ArticlePresenter.new(object: article, view_template: view) }
 
     describe "images wrapped in a div" do
-      it "returns index image when index_image_div method called" do
-        image_div = view.content_tag :div, view.image_tag(article.image.index), class: "small-4 columns"
+      it "returns index image" do
+        image_div = view.content_tag :div, view.image_tag(article.image.index, alt: article.title),
+                                     class: "medium-4 columns"
+
         expect(article_presenter.index_image_div).to eq image_div
       end
 
-      it "returns home image when home_image_div method called" do
-        image_div = view.content_tag :div, view.image_tag(article.image.homepage), class: "small-4 columns"
+      it "returns home image" do
+        image_div = view.content_tag :div, link_to(view.image_tag(article.image.homepage, alt: article.title),
+                                                   article, title: article.title), class: "medium-4 columns"
         expect(article_presenter.home_image_div).to eq image_div
       end
     end
 
     describe "images" do
-      it "returns nil when index image called" do
-        image = view.image_tag(article.image.index)
+      it "returns index image" do
+        image = view.image_tag(article.image.index, alt: article.title)
         expect(article_presenter.index_image).to eq image
       end
 
-      it "returns nil when home image called" do
-        image = view.image_tag(article.image.homepage)
+      it "returns home image" do
+        image = view.image_tag(article.image.homepage, alt: article.title)
         expect(article_presenter.home_image).to eq image
       end
 
-      it "returns nil when show image called" do
-        image = view.image_tag(article.image.show)
+      it "returns show image" do
+        image = view.image_tag(article.image.show, alt: article.title)
         expect(article_presenter.show_image).to eq image
       end
     end

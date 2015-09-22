@@ -46,7 +46,7 @@ class Page < ActiveRecord::Base
   end
 
   def self.styles
-    %w{ basic }
+    %w{ basic pathway }
   end
 
   def store_image

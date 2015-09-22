@@ -1,0 +1,21 @@
+<div class="row collapse module-list-index <%= cycle('odd', 'even') %>" data-equalizer="module-list" id="item_<%= pathway_jigsaw_piece_presenter.id %>">
+  <div class="large-6 small-7 columns" data-equalizer-watch="module-list">
+    <%= pathway_jigsaw_piece_presenter.name %>
+  </div>
+
+  <div class="small-3 columns" data-equalizer-watch="module-list">
+    <%= pathway_jigsaw_piece_presenter.colour %>
+  </div>
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%= pathway_jigsaw_piece_presenter.toggle_link %>
+  </div>
+
+  <div class="large-1 small-4 columns" data-equalizer-watch="module-list">
+    <%= pathway_jigsaw_piece_presenter.edit_link %>
+  </div>
+
+  <div class="large-1 hide-for-medium-down columns last" data-equalizer-watch="module-list">
+    <%= pathway_jigsaw_piece_presenter.delete_link %>
+  </div>
+</div>
