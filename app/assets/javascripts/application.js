@@ -20,6 +20,7 @@
 //= require vendor/jquery.doubletaptogo
 //= require slick.js.js
 //= require fancybox/source/jquery.fancybox.pack.js
+//= require matchHeight
 // require_tree .
 $(document).foundation();
 

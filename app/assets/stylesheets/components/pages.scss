@@ -2,10 +2,9 @@
 
 a.pathway-row {
   display: block;
-  text-align: center;
-  padding: 5px;
-  border-bottom: 2px solid $white;
+  border-top: 2px solid $white;
   color: $white;
+  padding: em(5px) em(30px);
   text-decoration: none;
 
   &.blue {
@@ -18,11 +17,64 @@ a.pathway-row {
 
 }
 
+@mixin jigsaw-after($image-url) {
+  @media screen and (min-width: 1024px) {
+    &:after {
+      content: '';
+      background: image-url($image-url) center right no-repeat;
+      z-index: 1;
+      top: 50%;
+      right: -35px;
+      position: absolute;
+      width: 35px;
+      height: 31px;
+      margin-top: -15px;
+    }
+  }
+}
+
 .pathway-jigsaw-piece {
+  border-top: 2px solid $white;
+  border-left: 2px solid $white;
   text-align: center;
+  color: $white;
+  padding: em(33px);
+  line-height: 1.25;
+  position: relative;
+  height: 100%;
+
+  @media screen and (max-width: 1023px) {
+    padding: em(17px);
+  }
+
+  &.purple {
+    @include jigsaw-after('components/pathway/purple-jigsaw.png');
+    background: $service-dark-purple;
+  }
+
+  &.blue {
+    @include jigsaw-after('components/pathway/blue-jigsaw.png');
+    background: $jigsaw-blue;
+  }
+
+  &.green {
+    background: $jigsaw-green;
+  }
 }
 
 .pathway-row-content {
   display: none;
   max-width: 600px;
+}
+
+.fancybox-prev {
+  left: -42px;
+}
+
+.fancybox-next {
+  right: -42px;
+}
+
+.pathway-title {
+  margin: 0 0 em(20px) 0;
 }

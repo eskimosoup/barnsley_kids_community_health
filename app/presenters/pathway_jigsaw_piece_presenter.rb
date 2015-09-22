@@ -10,6 +10,6 @@ class PathwayJigsawPiecePresenter < BasePresenter
   end
 
   def classes
-    [colour, "pathway-jigsaw-piece", "medium-4", "columns"].compact.join(" ")
+    [colour, "pathway-jigsaw-piece"].compact.join(" ")
   end
 end

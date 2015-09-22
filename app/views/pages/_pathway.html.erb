@@ -1,3 +1,10 @@
+<%= content_for :footer do %>
+  <script>
+  $(function() {
+    $('.pathway-jigsaw-piece-column').matchHeight({ byRow: true });
+  })
+  </script>
+<% end %>
 <section class="separated-section page lightest-grey-background">
   <div class="row">
     <div class="small-12 columns">
@@ -5,19 +12,21 @@
         <h1><%= @presented_page.title %></h1>
 
         <div class="content-wrap">
-          <h2>Universal Healthy Child Pathway 0-19 Years</h2>
+          <h2 class="pathway-title">Universal Healthy Child Pathway 0-19 Years</h2>
           <% @presented_pathway_sections.each do |pathway_section_presenter| %>
-            <div class="row">
+            <div class="row collapse">
               <div class="small-12 medium-5 columns">
                 <% pathway_section_presenter.presented_pathway_rows.each do |pathway_row_presenter| %>
                   <%= pathway_row_presenter.lightbox_link %>
                 <% end %>
               </div>
               <div class="show-for-medium-up medium-7 columns">
-                <div class="row">
+                <div class="row collapse">
                   <% pathway_section_presenter.presented_pathway_jigsaw_pieces.each do |pathway_jigsaw_piece_presenter| %>
-                    <div class="<%= pathway_jigsaw_piece_presenter.classes %>">
-                      <%= pathway_jigsaw_piece_presenter.name %>
+                    <div class="medium-4 pathway-jigsaw-piece-column columns">
+                      <div class="<%= pathway_jigsaw_piece_presenter.classes %>">
+                        <%= pathway_jigsaw_piece_presenter.name %>
+                      </div>
                     </div>
                   <% end %>
                 </div>
