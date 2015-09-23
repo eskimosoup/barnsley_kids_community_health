@@ -15,6 +15,9 @@ a.pathway-row {
     background-color: $service-pink;
   }
 
+  &:first-of-type {
+    border-top-width: 1px;
+  }
 }
 
 @mixin jigsaw-after($image-url) {
@@ -38,7 +41,7 @@ a.pathway-row {
   border-left: 2px solid $white;
   text-align: center;
   color: $white;
-  padding: em(33px);
+  padding: em(28px) em(33px);
   line-height: 1.25;
   position: relative;
   height: 100%;
