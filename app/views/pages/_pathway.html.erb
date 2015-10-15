@@ -12,6 +12,10 @@
         <h1><%= @presented_page.title %></h1>
 
         <div class="content-wrap">
+          <%= @presented_page.image %>
+
+          <%= @presented_page.content %>
+          
           <h2 class="pathway-title">Universal Healthy Child Pathway 0-19 Years</h2>
           <% @presented_pathway_sections.each do |pathway_section_presenter| %>
             <div class="row collapse">
@@ -39,9 +43,6 @@
               </div>
             <% end %>
           <% end %>
-          <%= @presented_page.image %>
-
-          <%= @presented_page.content %>
         </div>
       </div>
     </div>
