@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.2.3"
+ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -68,6 +68,5 @@ source 'https://rails-assets.org' do
 end
 
 gem 'twitter'
-#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
-gem 'optimadmin', path: '../optimadmin'
+gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
 gem 'friendly_id', '~> 5.1.0'
