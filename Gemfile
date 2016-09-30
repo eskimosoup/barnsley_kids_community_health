@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '>= 4.2', '< 5.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -34,7 +34,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
 
@@ -43,23 +43,22 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #gem 'spring'
+  # gem 'spring'
   gem 'quiet_assets', '~> 1.1.0'
   gem 'guard-rspec', require: false
   gem 'optimadmin_generators', git: 'git@github.com:eskimosoup/optimadmin_generators.git'
   gem 'rack-mini-profiler'
   gem 'flamegraph'
   gem 'stackprof', '~> 0.2.7'
-  gem "bullet"
+  gem 'bullet'
 end
 
 group :test do
   gem 'database_cleaner', '~> 1.4.1'
-  gem "capybara"
+  gem 'capybara'
   gem 'launchy', '~> 2.4.3'
   gem 'poltergeist'
 end
-
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
