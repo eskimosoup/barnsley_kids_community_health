@@ -4,15 +4,17 @@
   <%= link_to "@#{global_site_settings['Twitter']}", "http://twitter.com/#{global_site_settings['Twitter']}",
       title: 'Follow us on Twitter', class: 'twitter-username' %>
 
-  <% [0, 1, 2].each do |index| %>
-    <div class="twitter-tweet-wrap">
-      <p class="twitter-tweet">
-        <%= raw twitter_timeline_text index %>
-      </p>
+  <% cache 'twitter', expires_in: 900  do %>
+    <% [0, 1, 2].each do |index| %>
+      <div class="twitter-tweet-wrap">
+        <p class="twitter-tweet">
+          <%= raw twitter_timeline_text index %>
+        </p>
 
-      <div class="twitter-tweet-time">
-        <%= twitter_timeline_ago index %>
+        <div class="twitter-tweet-time">
+          <%= twitter_timeline_ago index %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
