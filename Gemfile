@@ -62,7 +62,7 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-slick.js'
-  gem 'rails-assets-fancybox'
+  gem 'rails-assets-fancybox', '2.1.5'
   gem 'rails-assets-matchHeight'
 end
 
