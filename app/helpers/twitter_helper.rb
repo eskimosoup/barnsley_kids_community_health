@@ -10,17 +10,20 @@ module TwitterHelper
 
   def twitter_timeline
     @home_timeline = twitter_connect.user_timeline(global_site_settings['Twitter'], count: 3)
-
   rescue Twitter::Error => e
     logger.error "Twitter broke due to: #{e}"
   end
 
   def twitter_timeline_text(i)
     scan_for_links twitter_timeline[i].text
+  rescue
+    nil
   end
 
   def twitter_timeline_ago(i)
     "#{time_ago_in_words twitter_timeline[i].created_at} ago"
+  rescue
+    nil
   end
 
   def scan_for_links(text)
