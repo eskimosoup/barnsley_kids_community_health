@@ -1,8 +1,13 @@
 <header>
   <div class="row">
     <div class="small-12 columns">
-      <%= link_to image_tag("logo.jpg", alt: global_site_settings["Name"], class: 'left'), "#{ request.protocol }#{ 'www.' if Rails.env.production? }#{ request.domain }" %>
-      <%= link_to image_tag("logo_swyp_nhs.png", alt: "South West Yorkshire Partnership NHS Foundation Trust"), "http://www.southwestyorkshire.nhs.uk/", class: 'right' %>
+      <%#= link_to image_tag("logo.jpg", alt: global_site_settings["Name"], class: 'left'), "#{ request.protocol }#{ 'www.' if Rails.env.production? }#{ request.domain }" %>
+      <div class="left">
+        <%= link_to root_url, class: 'title' do %>
+          Barnsley Specialist<br />Children’s Health Services
+        <% end %>
+      </div>
+      <%= link_to image_tag("logo_swyp_nhs.png", alt: "South West Yorkshire Partnership NHS Foundation Trust", style: 'max-height: 40px;'), "http://www.southwestyorkshire.nhs.uk/", class: 'right' %>
     </div>
   </div>
 
