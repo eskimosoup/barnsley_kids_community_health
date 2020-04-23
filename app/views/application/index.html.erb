@@ -24,17 +24,21 @@
 </div>
 
 
+<!--
 <section class="home services row collapse">
-  <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
 
   <div class="small-12 medium-4 columns">
-    <%= render "articles/home_article", presented_article: @presented_article if @presented_article %>
+    <%#= render "articles/home_article", presented_article: @presented_article if @presented_article %>
   </div>
 </section>
+-->
 
-<section class="separated-section lightest-grey-background" data-equalizer>
+<!-- <section class="separated-section lightest-grey-background" data-equalizer> -->
+<section class="home services" data-equalizer>
   <div class="row">
     <div class="small-12 medium-7 columns"  data-equalizer-watch>
+      <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
+      <!--
       <div class="content-box facebook">
         <div class="fb-page"
         data-href="https://www.facebook.com/BarnsleyHealthVisiting"
@@ -50,7 +54,9 @@
             </blockquote>
           </div>
         </div>
+
       </div>
+        -->
     </div>
 
     <div class="small-12 medium-5 columns"  data-equalizer-watch>
