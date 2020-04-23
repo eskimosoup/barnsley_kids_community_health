@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '>= 4.2', '< 5.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+gem 'pg', '~> 0.20.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -45,19 +45,20 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
   gem 'quiet_assets', '~> 1.1.0'
-  gem 'guard-rspec', require: false
+  # gem 'guard-rspec', require: false
   gem 'optimadmin_generators', git: 'git@github.com:eskimosoup/optimadmin_generators.git'
   gem 'rack-mini-profiler'
   gem 'flamegraph'
   gem 'stackprof', '~> 0.2.7'
   gem 'bullet'
+  gem 'dotenv-rails'
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.4.1'
-  gem 'capybara'
-  gem 'launchy', '~> 2.4.3'
-  gem 'poltergeist'
+  #gem 'database_cleaner', '~> 1.4.1'
+  #gem 'capybara'
+  #gem 'launchy', '~> 2.4.3'
+  #gem 'poltergeist'
 end
 
 source 'https://rails-assets.org' do
@@ -69,3 +70,4 @@ end
 gem 'twitter'
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git'
 gem 'friendly_id', '~> 5.1.0'
+gem 'recaptcha'

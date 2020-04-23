@@ -24,7 +24,6 @@ default: &default
 development:
   <<: *default
   database: barnsley_kids_community_health_development
-  host: 192.168.0.41
   user: postgres
   password: tmedia
 
@@ -61,7 +60,6 @@ development:
 test:
   <<: *default
   database: barnsley_kids_community_health_test
-  host: 192.168.0.41
   user: postgres
   password: tmedia
 
