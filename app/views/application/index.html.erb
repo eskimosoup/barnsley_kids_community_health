@@ -37,7 +37,9 @@
 <section class="home services" data-equalizer>
   <div class="row">
     <div class="small-12 medium-7 columns"  data-equalizer-watch>
-      <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
+      <div class="row">
+        <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
+      </div>
       <!--
       <div class="content-box facebook">
         <div class="fb-page"
