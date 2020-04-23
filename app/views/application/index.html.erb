@@ -39,6 +39,9 @@
     <div class="small-12 medium-7 columns"  data-equalizer-watch>
       <div class="row">
         <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
+        <div class="small-12 medium-6 columns">
+          <%= render "articles/home_article", presented_article: @presented_article if @presented_article %>
+        </div>
       </div>
       <!--
       <div class="content-box facebook">

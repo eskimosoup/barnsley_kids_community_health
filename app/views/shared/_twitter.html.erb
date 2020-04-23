@@ -5,7 +5,7 @@
       title: 'Follow us on Twitter', class: 'twitter-username' %>
 
   <% cache 'twitter', expires_in: 900  do %>
-    <% [0, 1, 2].each do |index| %>
+    <% [0, 1].each do |index| %>
       <div class="twitter-tweet-wrap">
         <p class="twitter-tweet">
           <%= raw twitter_timeline_text index %>
