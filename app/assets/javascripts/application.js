@@ -16,7 +16,7 @@
 //= require vendor/foundation/foundation.js
 //= require vendor/foundation/foundation.equalizer.js
 //= require components/toggle_class.js
-//= require vendor/jquery-ui
+//= require vendor/jquery-ui-frontend
 //= require vendor/jquery.doubletaptogo
 //= require slick.js.js
 //= require fancybox/source/jquery.fancybox.pack.js

@@ -1,0 +1,34 @@
+
+var tinyMCEdefaults = {
+  selector: '.tinymce',
+  theme: 'modern',
+  plugins: [
+    'contextmenu code link paste autolink hr table optimage mantlink lists autoresize'
+  ],
+  contextmenu: "link optimage | inserttable | cell row column deletetable",
+  menubar: 'edit insert format table tools',
+  toolbar1: 'styleselect | bold italic underline | alignleft aligncenter alignright outdent indent | bullist numlist | subscript superscript strikethrough',
+  toolbar2: 'link optimage | hr | code',
+  link_list: '/admin/link_list',
+  valid_children: "+a[div|h1|h2|h3|h4|h5|h6|p|#text]",
+  extended_valid_elements: '',
+  image_class_list: [
+    { title: 'None', value: '' },
+    { title: 'Image Left', value: 'image-left' },
+    { title: 'Image Right', value: 'image-right' },
+  ],
+  style_formats: [
+    { block: 'h2', title: 'Header 2' },
+    { block: 'h3', title: 'Header 3' },
+    { block: 'h4', title: 'Header 4' },
+    { block: 'h5', title: 'Header 5' },
+    { block: 'h6', title: 'Header 6' },
+    { block: 'p', title: 'Paragraph' },
+    { title: 'Image Left', selector: 'img', attributes: { class: 'image-left' } },
+    { title: 'Image Right', selector: 'img', attributes: { class: 'image-right' } }
+  ],
+  external_plugins: {
+    'mantlink': "<%= asset_path 'tinymce/plugins/optimage/plugin.js' %>",
+    'optimage': "<%= asset_path 'tinymce/plugins/mantlink/plugin.js' %>"
+  }
+}

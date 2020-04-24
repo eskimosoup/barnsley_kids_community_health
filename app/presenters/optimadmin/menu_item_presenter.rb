@@ -56,6 +56,23 @@ module Optimadmin
 
     private
 
+
+    def pencil
+      h.octicon('pencil').html_safe
+    end
+
+    def trash_can
+      h.octicon('trashcan').html_safe
+    end
+
+    def eye
+      h.octicon('eye').html_safe
+    end
+
+    def chevron_down
+      h.octicon('chevron-down').html_safe
+    end
+
     def edit_link(content:, options: {})
       h.link_to content, h.edit_menu_item_path(menu_item), options
     end

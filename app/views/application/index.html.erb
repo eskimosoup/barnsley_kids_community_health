@@ -24,44 +24,34 @@
 </div>
 
 
-<!--
 <section class="home services row collapse">
-
+        <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
   <div class="small-12 medium-4 columns">
-    <%#= render "articles/home_article", presented_article: @presented_article if @presented_article %>
+    <%= render "articles/home_article", presented_article: @presented_article if @presented_article %>
   </div>
 </section>
--->
 
-<!-- <section class="separated-section lightest-grey-background" data-equalizer> -->
-<section class="home services" data-equalizer>
+<section class="separated-section lightest-grey-background" data-equalizer>
   <div class="row">
     <div class="small-12 medium-7 columns"  data-equalizer-watch>
-      <div class="row">
-        <%= render partial: "services/home_service", collection: @presented_services, as: :presented_service %>
-        <div class="small-12 medium-6 columns">
-          <%= render "articles/home_article", presented_article: @presented_article if @presented_article %>
-        </div>
-      </div>
-      <!--
+
       <div class="content-box facebook">
         <div class="fb-page"
-        data-href="https://www.facebook.com/BarnsleyHealthVisiting"
+        data-href="https://www.facebook.com/BarnsleySpecialistChildrensHealth"
         data-tabs="timeline" data-height="522" data-small-header="false"
         data-adapt-container-width="true" data-hide-cover="false"
         data-show-facepile="true"
         data-width="513">
           <div class="fb-xfbml-parse-ignore">
-            <blockquote cite="https://www.facebook.com/BarnsleyHealthVisiting">
-              <a href="https://www.facebook.com/BarnsleyHealthVisiting">
-                Barnsley 0-19 Children&#039;s Community Health
+            <blockquote cite="https://www.facebook.com/BarnsleySpecialistChildrensHealth">
+              <a href="https://www.facebook.com/BarnsleySpecialistChildrensHealth">
+                Barnsley specialist children's health
               </a>
             </blockquote>
           </div>
         </div>
 
       </div>
-        -->
     </div>
 
     <div class="small-12 medium-5 columns"  data-equalizer-watch>
