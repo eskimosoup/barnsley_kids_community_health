@@ -1,6 +1,22 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: 'www.barnsleychildrenshealth.co.uk' }
+  #config.action_mailer.default_url_options = { host: 'www.barnsleychildrenshealth.co.uk' }
+
+  Rails.application.routes.default_url_options[:host] = 'www.barnsleychildrenshealth.co.uk'
+  Rails.application.routes.default_url_options[:protocol] = 'https'
+
+  config.action_mailer.default_url_options = {
+    host: Rails.application.routes.default_url_options[:host],
+    protocol: Rails.application.routes.default_url_options[:protocol]
+  }
+
+  config.action_mailer.asset_host = [
+    Rails.application.routes.default_url_options[:protocol],
+    '://',
+    Rails.application.routes.default_url_options[:host]
+  ].join
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

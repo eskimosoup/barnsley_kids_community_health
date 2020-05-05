@@ -20,11 +20,11 @@
         <div class="small-12 columns">
           <div class="service-banner">
             <div class="service-banner-content">
-              <%= render partial: "testimonials/testimonial", locals: { presented_testimonial: @presented_testimonial } %>
+              <%= render partial: "testimonials/testimonial", locals: { presented_testimonial: @presented_testimonial } if @presented_testimonial.present? %>
             </div>
 
             <div class="service-banner-image">
-              <%= @presented_service.banner_image %>
+              <%= @presented_service.banner_image if @presented_service.banner_image.present? %>
             </div>
           </div>
         </div>

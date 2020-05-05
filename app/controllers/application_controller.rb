@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def index
     if @service
-      @presented_testimonial = TestimonialPresenter.new(object: @service.testimonials.displayed.service_home.last, view_template: view_context)
+      @presented_testimonial = TestimonialPresenter.new(object: @service.testimonials.displayed.service_home.last, view_template: view_context) if @service.testimonials.displayed.present?
       @presented_faqs = BaseCollectionPresenter.new(collection: @service.frequently_asked_questions.displayed.service_home, view_template: view_context,
                                                     presenter: FrequentlyAskedQuestionPresenter)
       render template: "services/show"
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
   def set_service
     @service = Service.displayed.find_by(subdomain: request.subdomain)
-    #@service = Service.find(1) if Rails.env.development?
+    @service = Service.find(9) if Rails.env.development?
     # this has to be here to be global
     @presented_service = ServicePresenter.new(object: @service, view_template: view_context) if @service
   end

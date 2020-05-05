@@ -1,9 +1,22 @@
 header {
+  /*
   margin: em(30px) 0 0;
 
   @include responsive-to(small) {
     margin: em(5px) 0 0;
   }
+  */
+}
+
+.covid-19-banner {
+  background-color: $jigsaw-green;
+  border-bottom: 1px solid $dark-grey;
+  color: $dark-grey;
+  font-size: 16px;
+  font-weight: $primary-font-bold;
+  text-align: center;
+  margin-bottom: em(40px);
+  padding: em(10px);
 }
 
 .title {

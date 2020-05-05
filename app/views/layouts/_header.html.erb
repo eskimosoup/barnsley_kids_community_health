@@ -1,4 +1,6 @@
 <header>
+  <div class="covid-19-banner">We are open during COVID 19</div>
+
   <div class="row">
     <div class="small-12 columns">
       <%#= link_to image_tag("logo.jpg", alt: global_site_settings["Name"], class: 'left'), "#{ request.protocol }#{ 'www.' if Rails.env.production? }#{ request.domain }" %>
@@ -7,6 +9,7 @@
           Barnsley Specialist<br />Children’s Health Services
         <% end %>
       </div>
+
       <%= link_to image_tag("logo_swyp_nhs.png", alt: "South West Yorkshire Partnership NHS Foundation Trust", style: 'max-height: 40px;'), "http://www.southwestyorkshire.nhs.uk/", class: 'right' %>
     </div>
   </div>

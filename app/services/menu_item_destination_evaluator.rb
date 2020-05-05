@@ -23,7 +23,7 @@ class MenuItemDestinationEvaluator
         page_route
       when Service
         base_url
-        #h.request.protocol + menu_resource.subdomain + "." + [h.request.domain, h.request.port].compact.join(":")
+        #h.request.protocol + menu_resource.subdomain + "." + [h.request.domain].compact.join(":")
       else
     end
   end

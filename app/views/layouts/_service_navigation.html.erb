@@ -1,6 +1,6 @@
 <div class="service-title <%= @presented_service.colour %>">
   <%= link_to @presented_service.subdomain_link, class: 'toggle-class', data: { container: '.service-navigation-wrap', class: 'hide-for-small', return: 'true' } do %>
-    <%= @presented_service.icon %>
+    <%= @presented_service.icon if @presented_service.icon.present? %>
     <%= @presented_service.name %>
   <% end %>
 

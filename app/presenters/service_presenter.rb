@@ -7,7 +7,7 @@ class ServicePresenter < BasePresenter
   end
 
   def icon
-    h.image_tag service.icon.url, class: 'service-icon-image'
+    h.image_tag service.icon.url, class: 'service-icon-image' if service.icon?
   end
 
   def homepage_image
@@ -15,7 +15,7 @@ class ServicePresenter < BasePresenter
   end
 
   def banner_image
-    h.image_tag service.image.banner, width: 424, height: 188
+    h.image_tag service.image.banner, width: 424, height: 188 if service.image?
   end
 
   def colour
@@ -31,7 +31,7 @@ class ServicePresenter < BasePresenter
   end
 
   def subdomain_link
-    h.request.protocol + subdomain + "." + [h.request.domain, h.request.port].compact.join(":")
+    h.request.protocol + subdomain + "." + [h.request.domain].compact.join(":")
   end
 
 end
