@@ -58,4 +58,9 @@
   h4, h5, h6 {
     font-size: em(10px);
   }
+
+  ul,
+  ol {
+    list-style-position: outside;
+  }
 }
