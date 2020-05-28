@@ -2,6 +2,15 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   #config.action_mailer.default_url_options = { host: 'www.barnsleychildrenshealth.co.uk' }
 
+  config.action_mailer.smtp_settings = { enable_starttls_auto: false }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: 'mail.optimised.today',
+    authentication: :plain,
+    user_name: 'noreply@optimised.today',
+    password: ENV['NOREPLY_PASSWORD']
+  }
+
   Rails.application.routes.default_url_options[:host] = 'www.barnsleychildrenshealth.co.uk'
   Rails.application.routes.default_url_options[:protocol] = 'https'
 
