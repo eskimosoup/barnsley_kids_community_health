@@ -8,7 +8,8 @@ Rails.application.configure do
     authentication: :plain,
     user_name: 'noreply@optimised.today',
     password: ENV['NOREPLY_PASSWORD'],
-    enable_starttls_auto: false
+    enable_starttls_auto: false,
+    port: 587
   }
 
   Rails.application.routes.default_url_options[:host] = 'www.barnsleychildrenshealth.co.uk'
