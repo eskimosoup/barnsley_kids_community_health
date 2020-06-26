@@ -2,6 +2,12 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   #config.action_mailer.default_url_options = { host: 'www.barnsleychildrenshealth.co.uk' }
 
+  config.logger = ActiveSupport::Logger.new(
+    config.paths['log'].first,
+    3,
+    524_288_0
+  )
+
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     address: 'mail.optimised.today',
