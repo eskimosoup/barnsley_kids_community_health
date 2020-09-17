@@ -37,13 +37,12 @@
 
     <%= field_set_tag nil, id: 'tabs-2' do %>
       <div class="field">
-        <%= f.label :icon %><br>
-        <%= f.file_field :icon %>
-        <%= f.hidden_field :icon_cache %>
+        <%#= f.label :icon %><br>
+        <%= f.image_field :icon %>
+        <%#= f.hidden_field :icon_cache %>
       </div>
 
       <div class="field">
-        <%= f.label :image %><br>
         <%= f.image_field :image %>
       </div>
     <% end %>
